@@ -2,6 +2,7 @@ package com.ib.formationapi.service;
 
 import com.ib.formationapi.dao.FormationDao;
 import com.ib.formationapi.entity.Formation;
+import com.ib.formationapi.exception.FormationNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -35,23 +36,26 @@ public class FormationService {
      * @param id l'id de formation qu'on cherche
      * @return une formation
      */
-    public Formation findById(Long id) {
+    public Formation findById(Long id) throws FormationNotFoundException {
         Optional<Formation> optionalFormation = this.formationDao.findById(id);
-        if (optionalFormation.isPresent()) {
-            return optionalFormation.get();
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        if (!optionalFormation.isPresent()) {
+            throw new FormationNotFoundException("la formation avec l'id " + id + " n'existe pas");
         }
+        return optionalFormation.get();
     }
 
     /**
      * c'est une méthode qui permet de récuperer une formation à partir de son nom
      *
-     * @param nom le nom de la formation
+     * @param intitule l'intitule de la formation
      * @return une formation
      */
-    public Formation findByNom(String nom) {
-        return this.formationDao.findByNom(nom);
+    public Formation findByIntitule(String intitule) throws FormationNotFoundException {
+        final Optional<Formation> optionalFormation = formationDao.findByIntitule(intitule);
+        if(!optionalFormation.isPresent()) {
+            throw new FormationNotFoundException("la formation avec l'intitule " + intitule + " n'existe pas");
+        }
+        return optionalFormation.get();
     }
 
     /**
