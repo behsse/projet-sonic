@@ -23,10 +23,14 @@ public class Formation {
     private String intitule;
     @Column(name = "public")
     private String publicConcerne;
+    private String description;
     private String objectif;
-    private String programme;
-    private int duree;
+    private String prerequis;
+    private String duree;
+    private boolean estIntra;
     private boolean distanciel;
+    private String image;
+
     @ManyToOne
     @JoinColumn(name="id_theme")
     private Theme theme;
