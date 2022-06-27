@@ -1,0 +1,151 @@
+// Applique le text-decoration a tous les balises "a" du site
+a{
+  text-decoration: none;
+}
+
+//Le sélecteur "nav > ul li:hover .sous" permet à cibler un sous menu .sous lorsqu’un utilisateur passe sa souris sur un éléments li
+nav .navbar > ul li:hover .sous{
+  display: block;
+}
+
+nav .user > ul li:hover .sous{
+  display: block;
+}
+
+.navbar .deroulant > a::after{
+  content:" ▼";
+  font-size: 12px;
+}
+
+/// Nav
+nav {
+  padding: 50px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo{
+    a{
+      color: #816797;
+      font-weight: 800;
+      font-size: 25px;
+    }
+  }
+
+  .navbar{
+    display: flex;
+    .sous{
+      display: none;
+      box-shadow: 0px 1px 2px #CCC;
+      background-color: white;
+      position: absolute;
+      width: 100%;
+      z-index: 1000;
+      margin-top: 2px;
+      a{
+        padding: 10px;
+        &:hover{
+          border-bottom: none;
+          background-color: RGBa(200,200,200,0.1);
+        }
+      }
+    }
+    ul{
+      list-style-type: none;
+      li{
+        a{
+          &:hover{
+            color: #816797;
+            border-bottom: 2px solid rgb(189, 148, 228);
+          }
+        }
+      }
+    }
+    .container-nav{
+      display: flex;
+      a{
+        color: #000;
+        font-weight: 400;
+      }
+      li.principal{
+        margin: 0 20px;
+        &:last-child{
+          margin: 0 0;
+        }
+      }
+      .deroulant{
+        .sous{
+          width: 20%;
+          li{
+            a{
+              display: block;
+              border-bottom: 2px solid transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+  .user{
+    .sous{
+      display: none;
+      box-shadow: 0px 1px 2px #CCC;
+      background-color: white;
+      position: absolute;
+      width: 100%;
+      z-index: 1000;
+      a{
+        padding: 10px;
+        &:hover{
+          border-bottom: none;
+          background-color: RGBa(200,200,200,0.1);
+        }
+      }
+    }
+    ul{
+      list-style-type: none;
+      li{
+        a{
+          margin: 0 30px;
+          &:last-child{
+            margin: 0 5px;
+          }
+          svg{
+            width: 25px;
+            height: 25px;
+            fill: #816797;
+          }
+        }
+      }
+    }
+    .container-nav{
+      display: flex;
+      a{
+        color: #816797;
+        font-weight: 400;
+      }
+      li.principal{
+        margin: 0 15px;
+        &:last-child{
+          margin: 0;
+        }
+      }
+      .deroulant{
+        .sous{
+          width: 20%;
+          right: 10px;
+          li{
+            a{
+              display: block;
+              border-bottom: 2px solid transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

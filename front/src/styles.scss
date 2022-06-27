@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Reset CSS
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+// Font Poppins sur tout le site
+html{
+  font-family: 'Poppins', sans-serif;
+}
