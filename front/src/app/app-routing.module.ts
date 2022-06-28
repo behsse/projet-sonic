@@ -4,7 +4,7 @@ import { NotFoundComponent } from './_commons/not-found/not-found.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: '**', component: NotFoundComponent}
+  {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({
