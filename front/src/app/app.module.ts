@@ -7,13 +7,21 @@ import { NavbarComponent } from './_commons/navbar/navbar.component';
 import { FooterComponent } from './_commons/footer/footer.component';
 import { NotFoundComponent } from './_commons/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './pages/home/home.component';
+import { FormationComponent } from './pages/formation/formation.component';
+import { ThemeComponent } from './pages/theme/theme.component';
+import { SousthemeComponent } from './pages/soustheme/soustheme.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent,
+    FormationComponent,
+    ThemeComponent,
+    SousthemeComponent
   ],
   imports: [
     BrowserModule,
