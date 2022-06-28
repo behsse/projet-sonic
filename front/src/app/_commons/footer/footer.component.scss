@@ -1,0 +1,126 @@
+a {
+  text-decoration: none;
+}
+
+.center {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+footer {
+  background-color: #51557e;
+  padding: 60px 0;
+  color: #fff;
+  .center {
+    .container {
+      margin: 0;
+      text-align: start;
+      justify-content: space-between;
+      width: 100%;
+      .itmoi {
+        flex-direction: column;
+        width: 20%;
+        p {
+          font-size: 22px;
+          text-transform: uppercase;
+          margin-bottom: 10px;
+        }
+        ul {
+          font-size: 0;
+          li {
+            list-style-type: none;
+            a {
+              display: block;
+              font-size: 15px;
+              color: #fff;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+      .propos {
+        width: 35%;
+        p {
+          font-size: 22px;
+          margin-bottom: 10px;
+          &:nth-of-type(1) {
+            text-transform: uppercase;
+          }
+          &:nth-of-type(2) {
+            font-size: 13px;
+            margin-bottom: 50px;
+          }
+        }
+      }
+      .suivre {
+        width: 35%;
+        p {
+          font-size: 22px;
+          margin-bottom: 10px;
+          &:nth-of-type(2) {
+            font-size: 13px;
+          }
+        }
+        form {
+          display: block;
+          position: relative;
+          input {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 2px;
+            background: none;
+            border: solid 2px #fff;
+            border-radius: 100px;
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+          }
+          input[type="text"]:focus {
+            outline: none;
+          }
+          ::-webkit-input-placeholder {
+            padding-left: 15px;
+            color: #fff;
+          }
+          button {
+            position: absolute;
+            right: 0;
+            width: 40%;
+            border: solid 2px #fff;
+            border-radius: 0 100px 100px 0;
+            color: #1b2430;
+            padding: 2px;
+            background: #fff;
+            font-family: "Poppins", sans-serif;
+            cursor: pointer;
+          }
+        }
+        .reseau {
+          justify-content: space-around;
+          svg {
+            cursor: pointer;
+            height: 24px;
+            width: 24px;
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+  .CVGML {
+    align-items: center;
+    justify-content: center;
+    a {
+      margin-right: 30px;
+      color: #fff;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
