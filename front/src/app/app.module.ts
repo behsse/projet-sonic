@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {LottieAnimationViewModule } from 'ng-lottie';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './_commons/navbar/navbar.component';
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LottieAnimationViewModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
