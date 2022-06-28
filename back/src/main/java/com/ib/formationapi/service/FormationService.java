@@ -2,7 +2,9 @@ package com.ib.formationapi.service;
 
 import com.ib.formationapi.dao.FormationDao;
 import com.ib.formationapi.entity.Formation;
-import com.ib.formationapi.exception.FormationNotFoundException;
+import com.ib.formationapi.exception.AlreadyExistException;
+import com.ib.formationapi.exception.NotFoundException;
+import com.ib.formationapi.exception.InvalidArgumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,7 @@ public class FormationService {
      * @return la liste de formation
      */
     public List<Formation> findAll() {
+
         return this.formationDao.findAll();
     }
 
@@ -36,10 +39,10 @@ public class FormationService {
      * @param id l'id de formation qu'on cherche
      * @return une formation
      */
-    public Formation findById(Long id) throws FormationNotFoundException {
+    public Formation findById(Long id) throws NotFoundException {
         Optional<Formation> optionalFormation = this.formationDao.findById(id);
         if (!optionalFormation.isPresent()) {
-            throw new FormationNotFoundException("la formation avec l'id " + id + " n'existe pas");
+            throw new NotFoundException("la formation avec l'id " + id + " n'existe pas");
         }
         return optionalFormation.get();
     }
@@ -50,10 +53,10 @@ public class FormationService {
      * @param intitule l'intitule de la formation
      * @return une formation
      */
-    public Formation findByIntitule(String intitule) throws FormationNotFoundException {
+    public Formation findByIntitule(String intitule) throws NotFoundException {
         final Optional<Formation> optionalFormation = formationDao.findByIntitule(intitule);
         if(!optionalFormation.isPresent()) {
-            throw new FormationNotFoundException("la formation avec l'intitule " + intitule + " n'existe pas");
+            throw new NotFoundException("la formation avec l'intitule " + intitule + " n'existe pas");
         }
         return optionalFormation.get();
     }
@@ -64,7 +67,14 @@ public class FormationService {
      * @param formation q'on va créer
      * @return une formation
      */
-    public Formation create(Formation formation) {
+    public Formation create(Formation formation) throws AlreadyExistException, InvalidArgumentException {
+        if(formation == null) {
+            throw new InvalidArgumentException("la formation ne doit pas être null");
+        }
+        formation.setId(null);
+        if(formationDao.findByIntitule(formation.getIntitule()).isPresent()) {
+            throw new AlreadyExistException("La formation avec l'intitulé " + formation.getIntitule() + " existe déja");
+        }
         return this.formationDao.save(formation);
     }
 
