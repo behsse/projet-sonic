@@ -1,6 +1,8 @@
+import Session from "./session.model";
 import Theme from "./theme.model";
 
-export default interface Formation extends Theme {
+
+export default interface Formation extends Theme, Session {
   id: number;
   intitule: string;
   publicConcerne: string;
@@ -12,4 +14,5 @@ export default interface Formation extends Theme {
   estDistanciel: boolean;
   image: string;
   theme: Theme;
+  session : Session;
 }
