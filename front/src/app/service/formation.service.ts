@@ -17,7 +17,7 @@ export class FormationService {
   }
 
   getFormation(id: number): Observable<Formation>{
-    return this.httpClient.get<Formation>(`${this.apiUrl}/formations/${id}`);
+    return this.httpClient.get<Formation>(`${this.apiUrl}/formations/id/${id}`);
   }
 
   createFormation(formation: Formation): Observable<Formation>{
