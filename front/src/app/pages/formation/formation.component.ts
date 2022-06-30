@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 // Import des models
 import Formation from 'src/app/models/formation.model';
@@ -17,28 +18,27 @@ import { SessionService } from 'src/app/service/session.service';
 export class FormationComponent implements OnInit {
 
   formation!: Formation;
-  session!: Session;
 
-  constructor(private router: Router, private route: ActivatedRoute, private formationService: FormationService, private SessionService: SessionService) { }
+  constructor(private formationService: FormationService, private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const type = this.route.snapshot.paramMap.get('type');
     const id = this.route.snapshot.paramMap.get('id');
-    // this.setSubscribe(type, id);
+    this.setSubscribe(type, id);
   }
 
-  // private subscribeFormation(id: number): void{
-  //   this.formationService.getFormation(id).subscribe((formation : Formation) => {
-  //     this.formation = formation;
-  //   })
-  // }
+  private subscribeFormation(id : number) : void{
+    this.formationService.getFormation((id)).subscribe((formation) => {
+      this.formation = formation;
+      console.log(this.formation);
+    });
+  }
 
-  // private setSubscribe(type: string | null, id: string | null){
-  //   if (id && type == 'formations'){
-  //     this.subscribeFormation(+id);
-  //   }else if (!id || !type){
-  //     this.router.navigate(['/not-found']);
-  //   }
-  // }
-
+  private setSubscribe(type: string | null, id: string | null){
+    if (id && type == 'formations'){
+      this.subscribeFormation(+id);
+    } else if (!id || !type) {
+      this.router.navigate(['/not-found']);
+    }
+  }
 }
