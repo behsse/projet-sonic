@@ -3,9 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 // Import des models
 import Formation from 'src/app/models/formation.model';
+import Session from 'src/app/models/session.model';
 
 // Import des services
 import { FormationService } from 'src/app/service/formation.service';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-formation',
@@ -15,8 +17,9 @@ import { FormationService } from 'src/app/service/formation.service';
 export class FormationComponent implements OnInit {
 
   formation!: Formation;
+  session!: Session;
 
-  constructor(private router: Router, private route: ActivatedRoute, private formationService: FormationService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private formationService: FormationService, private SessionService: SessionService) { }
 
   ngOnInit(): void {
     const type = this.route.snapshot.paramMap.get('type');
