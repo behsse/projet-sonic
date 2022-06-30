@@ -55,7 +55,7 @@ public class FormationService {
      */
     public Formation findByIntitule(String intitule) throws NotFoundException {
         final Optional<Formation> optionalFormation = formationDao.findByIntitule(intitule);
-        if(!optionalFormation.isPresent()) {
+        if (!optionalFormation.isPresent()) {
             throw new NotFoundException("la formation avec l'intitule " + intitule + " n'existe pas");
         }
         return optionalFormation.get();
@@ -68,11 +68,11 @@ public class FormationService {
      * @return une formation
      */
     public Formation create(Formation formation) throws AlreadyExistException, InvalidArgumentException {
-        if(formation == null) {
+        if (formation == null) {
             throw new InvalidArgumentException("la formation ne doit pas être null");
         }
         formation.setId(null);
-        if(formationDao.findByIntitule(formation.getIntitule()).isPresent()) {
+        if (formationDao.findByIntitule(formation.getIntitule()).isPresent()) {
             throw new AlreadyExistException("La formation avec l'intitulé " + formation.getIntitule() + " existe déja");
         }
         return this.formationDao.save(formation);
