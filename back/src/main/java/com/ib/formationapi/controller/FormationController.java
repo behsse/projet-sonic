@@ -19,7 +19,6 @@ public class FormationController {
     @Autowired
     private FormationService formationService;
 
-
     @GetMapping("intitule/{intitule}")
     public Formation getFormationByIntitule(@PathVariable final String intitule) {
         try {
