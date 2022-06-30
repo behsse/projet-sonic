@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Formation {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String intitule;
     @Column(name = "public")
@@ -30,8 +30,9 @@ public class Formation {
     private boolean estIntra;
     private boolean distanciel;
     private String image;
+    private String reference;
 
     @ManyToOne
-    @JoinColumn(name="id_theme")
+    @JoinColumn(name = "id_theme")
     private Theme theme;
 }
