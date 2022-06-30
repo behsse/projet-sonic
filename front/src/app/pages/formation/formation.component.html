@@ -1,5 +1,5 @@
 <div class="header">
-  <div class="container-titre">
+  <div class="container-titre" *ngIf="formation">
     <div class="theme">
       <a href="">Domaine</a>
       <p>></p>
@@ -9,14 +9,13 @@
 
     </div>
     <div class="titre">
-      <h2>Développeur Java</h2>
+      <h2>{{formation.intitule}}</h2>
       <p>
-        Faites vos premiers pas dans le monde du développment Java : Créer des
-        back et donner vie a vos applications !
+        {{formation.description}}
       </p>
     </div>
     <div class="info">
-      <p>A temps plein : 6 mois</p>
+      <p>A temps plein : {{formation.duree}}</p>
     </div>
     <!-- <div class="inscription">
       <a href="">S'inscrire</a>
@@ -78,6 +77,5 @@
 <div class="session">
   <!-- Gérer les intras et inter -->
   <div class="ville">
-     {{session}}
   </div>
 </div>
