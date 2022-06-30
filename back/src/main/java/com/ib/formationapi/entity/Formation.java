@@ -27,7 +27,9 @@ public class Formation {
     private String objectif;
     private String prerequis;
     private String duree;
+    @Column(name = "est_intra",nullable = false, columnDefinition = "TINYINT(1)")
     private boolean estIntra;
+    @Column(name="distanciel",nullable = false, columnDefinition = "TINYINT(1)")
     private boolean distanciel;
     private String image;
     private String reference;
