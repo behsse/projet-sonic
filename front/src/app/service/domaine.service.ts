@@ -6,7 +6,7 @@ import Domaine from '../models/domaine.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ModelService {
+export class DomaineService {
 
   private apiUrl = "http://localhost:8080"
 
