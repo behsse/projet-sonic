@@ -18,16 +18,25 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Formation {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String intitule;
     @Column(name = "public")
     private String publicConcerne;
+    @Column(name="description", columnDefinition = "TEXT")
+    private String description;
+    @Column(name="objectif", columnDefinition = "TEXT")
     private String objectif;
-    private String programme;
-    private int duree;
+    private String prerequis;
+    private String duree;
+    @Column(name = "est_intra",nullable = false, columnDefinition = "TINYINT(1)")
+    private boolean estIntra;
+    @Column(name="distanciel",nullable = false, columnDefinition = "TINYINT(1)")
     private boolean distanciel;
+    private String image;
+    private String reference;
+
     @ManyToOne
-    @JoinColumn(name="id_theme")
+    @JoinColumn(name = "id_theme")
     private Theme theme;
 }
