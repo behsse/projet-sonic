@@ -1,4 +1,5 @@
 export default interface Theme {
   id: number;
-  intitule: string;
+  titre: string;
+  estSousTheme: boolean;
 }

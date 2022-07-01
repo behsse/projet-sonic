@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 // Import des models
 import Formation from 'src/app/models/formation.model';
 import Session from 'src/app/models/session.model';
+import Domaine from 'src/app/models/domaine.model';
 
 // Import des services
 import { FormationService } from 'src/app/service/formation.service';
 import { SessionService } from 'src/app/service/session.service';
+import { DomaineService } from 'src/app/service/domaine.service';
 
 @Component({
   selector: 'app-formation',
@@ -18,6 +19,8 @@ import { SessionService } from 'src/app/service/session.service';
 export class FormationComponent implements OnInit {
 
   formation!: Formation;
+  sessions : Session[] = [];
+
 
   constructor(private formationService: FormationService, private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
 
@@ -25,6 +28,9 @@ export class FormationComponent implements OnInit {
     const type = this.route.snapshot.paramMap.get('type');
     const id = this.route.snapshot.paramMap.get('id');
     this.setSubscribe(type, id);
+
+    this.sessionService.getSessions().subscribe((session) => {this.sessions = session});
+
   }
 
   private subscribeFormation(id : number) : void{

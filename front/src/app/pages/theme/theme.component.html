@@ -1,1 +1,3 @@
-<p>theme works!</p>
+<li *ngFor="let formation of formations">
+   <a routerLink="/catalogue/themes/formations/{{formation.id}}">{{formation.intitule}}</a>
+</li>

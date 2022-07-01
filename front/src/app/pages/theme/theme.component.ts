@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Formation from 'src/app/models/formation.model';
+import { FormationService } from 'src/app/service/formation.service';
 
 @Component({
   selector: 'app-theme',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThemeComponent implements OnInit {
 
-  constructor() { }
+  formations: Formation[] = [];
+
+  constructor(private formationService: FormationService) { }
 
   ngOnInit(): void {
+
+    this.formationService.getFormations().subscribe((formation) => {this.formations = formation});
   }
 
 }

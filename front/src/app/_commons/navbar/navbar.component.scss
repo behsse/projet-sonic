@@ -47,10 +47,16 @@ nav {
           a{
             color: #816797;
             font-weight: 600;
+            font-size: 15px;
             &:hover{
               background-color: RGBa(0,0,0,0);
             }
           }
+        }
+      }
+      .theme{
+        .list-theme{
+          text-align: right;
         }
       }
       li{
@@ -78,6 +84,7 @@ nav {
     }
     .container-nav{
       display: flex;
+
       a{
         color: #000;
         font-weight: 400;
@@ -89,8 +96,13 @@ nav {
         }
       }
       .deroulant{
+        &:nth-of-type(2) .sous{
+          width: 50%;
+          left: 30%;
+        }
         .sous{
           width: 20%;
+
           li{
             a{
               display: block;

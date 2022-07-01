@@ -76,6 +76,9 @@
 
 <div class="session">
   <!-- Gérer les intras et inter -->
-  <div class="ville">
+  <div class="container-sessions" *ngFor="let session of sessions">
+      <div class="lieu">
+        <p>{{session.nom}}</p>
+      </div>
   </div>
 </div>
