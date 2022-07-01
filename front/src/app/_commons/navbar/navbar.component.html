@@ -4,7 +4,7 @@
   </div>
   <div class="navbar">
 
-    <ul class="container-nav">
+    <ul class="container-nav" >
       <li class="deroulant principal"><a routerLink="/home">Accueil &ensp;</a>
         <ul class="sous">
           <li><a href="#">1</a></li>
@@ -14,9 +14,18 @@
       </li>
       <li class="deroulant principal"><a routerLink="/catalogue">Formations &ensp;</a>
         <ul class="sous">
-          <li><a routerLink="catalogue/formations/1">Java</a></li>
-          <li><a href="catalogue/formations/2">Angular</a></li>
-          <li><a href="#">Cours PHP et MySQL</a></li>
+          <div class="domaine">
+            <li *ngFor="let domaine of domaines" class="list-domaine">
+              <a>{{domaine.intitule}}</a>
+            </li>
+            <div class="theme">
+              <a routerLink=""></a>
+            </div>
+          </div>
+          <!-- <li *ngFor="let formation of formations">
+            <a routerLink="/catalogue/formations/{{formation.id}}">{{formation.intitule}}</a>
+          </li> -->
+
         </ul>
       </li>
       <li class="principal"><a href="#">Actualités</a></li>
