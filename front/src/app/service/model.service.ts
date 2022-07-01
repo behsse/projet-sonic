@@ -12,23 +12,23 @@ export class ModelService {
 
   constructor(private httpClient : HttpClient) { }
 
-  getFormations(): Observable<Domaine[]>{
+  getDomaines(): Observable<Domaine[]>{
     return this.httpClient.get<Domaine[]>(`${this.apiUrl}/domaines`);
   }
 
-  getFormation(id: number): Observable<Domaine>{
+  getDomaine(id: number): Observable<Domaine>{
     return this.httpClient.get<Domaine>(`${this.apiUrl}/domaines/id/${id}`);
   }
 
-  createFormation(domaine: Domaine): Observable<Domaine>{
+  createDomaine(domaine: Domaine): Observable<Domaine>{
     return this.httpClient.post<Domaine>(`${this.apiUrl}/domaines`, domaine);
   }
 
-  updateFormation(domaine: Domaine): Observable<Domaine>{
+  updateDomaine(domaine: Domaine): Observable<Domaine>{
     return this.httpClient.put<Domaine>(`${this.apiUrl}/domaines/${domaine.id}`, domaine);
   }
 
-  deleteFormation(id: number): Observable<Domaine>{
+  deleteDomaine(id: number): Observable<Domaine>{
     return this.httpClient.delete<Domaine>(`${this.apiUrl}/domaines/${id}`);
   }
 }
