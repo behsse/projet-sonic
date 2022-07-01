@@ -1,6 +1,7 @@
 package com.ib.formationapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,12 +23,13 @@ public class Theme {
     private List<Theme> sousThemeListe;
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
-    @JsonBackReference
+    @JsonIgnore
     private Theme themeParent;
     @Column(name = "est_sous_theme", nullable = false, columnDefinition = "TINYINT(1)")
     private boolean estSousTheme;
     @OneToMany(mappedBy = "theme", cascade = CascadeType.ALL)
     private List<Formation> formationsList;
     @ManyToMany(mappedBy = "themesListe")
+    @JsonIgnore
     private List<Domaine> domaineListe;
 }
