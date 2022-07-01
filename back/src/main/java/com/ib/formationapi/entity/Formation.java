@@ -23,7 +23,9 @@ public class Formation {
     private String intitule;
     @Column(name = "public")
     private String publicConcerne;
+    @Column(name="description", columnDefinition = "TEXT")
     private String description;
+    @Column(name="objectif", columnDefinition = "TEXT")
     private String objectif;
     private String prerequis;
     private String duree;
