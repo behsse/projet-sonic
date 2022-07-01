@@ -41,11 +41,33 @@ nav {
       width: 100%;
       z-index: 1000;
       margin-top: 2px;
-      a{
-        padding: 10px;
-        &:hover{
-          border-bottom: none;
-          background-color: RGBa(200,200,200,0.1);
+      .domaine{
+        display: flex;
+        .list-domaine{
+          a{
+            color: #816797;
+            font-weight: 600;
+            font-size: 15px;
+            &:hover{
+              background-color: RGBa(0,0,0,0);
+            }
+          }
+        }
+      }
+      .theme{
+        .list-theme{
+          text-align: right;
+        }
+      }
+      li{
+        width: 100%;
+        text-align: center;
+        a{
+          padding: 10px;
+          &:hover{
+            border-bottom: none;
+            background-color: RGBa(200,200,200,0.1);
+          }
         }
       }
     }
@@ -62,6 +84,7 @@ nav {
     }
     .container-nav{
       display: flex;
+
       a{
         color: #000;
         font-weight: 400;
@@ -73,8 +96,13 @@ nav {
         }
       }
       .deroulant{
+        &:nth-of-type(2) .sous{
+          width: 50%;
+          left: 30%;
+        }
         .sous{
           width: 20%;
+
           li{
             a{
               display: block;

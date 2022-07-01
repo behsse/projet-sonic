@@ -4,19 +4,26 @@
   </div>
   <div class="navbar">
 
-    <ul class="container-nav">
-      <li class="deroulant principal"><a href="#">Accueil &ensp;</a>
+    <ul class="container-nav" >
+      <li class="deroulant principal"><a routerLink="/home">Accueil &ensp;</a>
         <ul class="sous">
           <li><a href="#">1</a></li>
           <li><a href="#">2</a></li>
           <li><a href="#">3</a></li>
         </ul>
       </li>
-      <li class="deroulant principal"><a href="#">Formations &ensp;</a>
+      <li class="deroulant principal"><a routerLink="/catalogue">Formations &ensp;</a>
         <ul class="sous">
-          <li><a href="#">Cours HTML et CSS</a></li>
-          <li><a href="#">Cours JavaScript</a></li>
-          <li><a href="#">Cours PHP et MySQL</a></li>
+          <div class="domaine">
+            <li *ngFor="let domaine of domaines" class="list-domaine">
+              <a>{{domaine.intitule}}</a>
+            </li>
+          </div>
+            <div class="theme">
+              <li *ngFor="let theme of themes" class="list-theme">
+                  <a *ngIf="theme.estSousTheme == false" routerLink="/catalogue/themes">{{theme.titre}}</a>
+              </li>
+            </div>
         </ul>
       </li>
       <li class="principal"><a href="#">Actualités</a></li>

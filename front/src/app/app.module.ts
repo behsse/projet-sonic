@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from '@angular/common/http';
 import {LottieAnimationViewModule } from 'ng-lottie';
 
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { SousthemeComponent } from './pages/soustheme/soustheme.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     LottieAnimationViewModule.forRoot()
   ],
   providers: [],
