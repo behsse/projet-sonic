@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import Session from '../models/session.model';
 import Theme from '../models/theme.model';
 
 @Injectable({
