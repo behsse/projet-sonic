@@ -36,6 +36,8 @@ public class Formation {
     private String image;
     private String reference;
 
+    private double tarif;
+
     @ManyToOne
     @JoinColumn(name = "id_theme")
     private Theme theme;
