@@ -19,6 +19,7 @@ public class FormationDto {
     private boolean distanciel;
     private List<String> prerequisListe;
     private ThemeDto theme;
+    private double tarif;
 
 
 }
