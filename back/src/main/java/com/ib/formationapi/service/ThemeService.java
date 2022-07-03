@@ -7,6 +7,7 @@ import com.ib.formationapi.entity.Theme;
 import com.ib.formationapi.exception.AlreadyExistException;
 import com.ib.formationapi.exception.InvalidArgumentException;
 import com.ib.formationapi.exception.NotFoundException;
+import com.ib.formationapi.mapper.ThemeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * classe de service de l'entité service
@@ -26,9 +28,12 @@ public class ThemeService {
     @Autowired
     private ThemeDao themeDao;
 
-//    @Autowired
-//    private ObjectMapper objectMapper;
-//
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Autowired
+    private ThemeMapper themeMapper;
+
 //    public ThemeDto foo(Theme theme){
 //        return this.objectMapper.convertValue(theme,ThemeDto.class);
 //    }
@@ -38,8 +43,9 @@ public class ThemeService {
      *
      * @return une liste de theme
      */
-    public List<Theme> findAll() {
-        return this.themeDao.findAll();
+    public List<ThemeDto> findAll() {
+        final List<Theme> listeThemes = themeDao.findAll();
+        return listeThemes.stream().map(theme -> themeMapper.entityToDto(theme)).collect(Collectors.toList());
     }
 
     /**
@@ -49,23 +55,23 @@ public class ThemeService {
      * @return un theme
      * @throws NotFoundException
      */
-    public Theme findById(Long id) throws NotFoundException {
+    public ThemeDto findById(Long id) throws NotFoundException {
         Optional<Theme> optionalTheme = this.themeDao.findById(id);
         if (!optionalTheme.isPresent()) {
             throw new NotFoundException("le theme avec l'id " + id + " n'existe pas");
         }
-        return optionalTheme.get();
+        return themeMapper.entityToDto(optionalTheme.get());
     }
 
-    public Theme findByTitre(String titre) throws NotFoundException {
+    public ThemeDto findByTitre(String titre) throws NotFoundException {
         final Optional<Theme> optionalTheme = themeDao.findByTitre(titre);
         if (!optionalTheme.isPresent()) {
             throw new NotFoundException("le theme avec le titre " + titre + " n'exsiste pas");
         }
-        return optionalTheme.get();
+        return themeMapper.entityToDto(optionalTheme.get());
     }
 
-    public Theme create(Theme theme) throws AlreadyExistException, InvalidArgumentException {
+    public ThemeDto create(Theme theme) throws AlreadyExistException, InvalidArgumentException {
         if (theme == null) {
             throw new InvalidArgumentException("le theme ne doit pas être null");
         }
@@ -73,14 +79,17 @@ public class ThemeService {
         if (themeDao.findByTitre(theme.getTitre()).isPresent()) {
             throw new AlreadyExistException("Le theme avec le titre " + theme.getTitre() + "existe déja");
         }
-        return this.themeDao.save(theme);
+        final Theme themeEnregistre = this.themeDao.save(theme);
+        return themeMapper.entityToDto(themeEnregistre);
     }
 
-    public Theme update(Theme theme, Long id) {
+    public ThemeDto update(Theme theme, Long id) {
         if (!this.themeDao.existsById(theme.getId())) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "le theme n'a pas été mise à jour");
         }
-        return this.themeDao.save(theme);
+
+        final Theme themeMisAjour = this.themeDao.save(theme);
+        return themeMapper.entityToDto(themeMisAjour);
     }
 
     public void delete(Long id) {

@@ -15,7 +15,7 @@ public class FormationDto {
     private String publicConcerne;
     private String objectif;
     private String programme;
-    private int duree;
+    private String duree;
     private boolean distanciel;
     private List<String> prerequisListe;
     private ThemeDto theme;

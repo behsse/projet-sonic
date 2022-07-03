@@ -1,18 +1,11 @@
 package com.ib.formationapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -42,6 +35,6 @@ public class Formation {
 
     @ManyToOne
     @JoinColumn(name = "id_theme")
-    @JsonBackReference
+//    @JsonBackReference
     private Theme theme;
 }

@@ -26,10 +26,10 @@ public class Theme {
     private Theme themeParent;
     @Column(name = "est_sous_theme", nullable = false, columnDefinition = "TINYINT(1)")
     private boolean estSousTheme;
-    @OneToMany(mappedBy = "theme")
-    @JsonManagedReference
-    private List<Formation> formationsList;
-    @ManyToMany(mappedBy = "themesListe")
-    @JsonIgnore
-    private List<Domaine> domaineListe;
+//    @OneToMany(mappedBy = "theme")
+//    @JsonManagedReference
+//    private List<Formation> formationsList;
+//    @ManyToMany(mappedBy = "themesListe")
+//    @JsonManagedReference
+//    private List<Domaine> domaineListe;
 }

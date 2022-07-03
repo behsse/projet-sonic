@@ -10,10 +10,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ThemeDto {
-
-    private int id;
+    private Long id;
     private String titre;
     private List<ThemeDto> sousThemeListe;
+    private ThemeDto themeParent;
     private boolean estSousTheme;
-    private List<FormationDto> formationsList;
+//    private List<FormationDto> formationsList;
+//    private List<DomaineDto> domaineListe;
 }
