@@ -49,7 +49,7 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>3.0.0</version>
         </dependency>
-
+        <!--        documentation -->
 <!--        generation des getter et setter-->
         <dependency>
             <groupId>org.projectlombok</groupId>

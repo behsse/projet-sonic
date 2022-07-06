@@ -1,5 +1,6 @@
 package com.ib.formationapi.controller;
 
+import com.ib.formationapi.dto.DomaineDto;
 import com.ib.formationapi.entity.Domaine;
 
 import com.ib.formationapi.exception.AlreadyExistException;
@@ -20,7 +21,7 @@ public class DomaineController {
     private DomaineService domaineService;
 
     @GetMapping("intitule/{intitule}")
-    public Domaine getDomaineByIntitule(@PathVariable final String intitule) {
+    public DomaineDto getDomaineByIntitule(@PathVariable final String intitule) {
         try {
             return domaineService.findByIntitule(intitule);
         } catch (NotFoundException domaineNotFoundException) {
@@ -29,7 +30,7 @@ public class DomaineController {
     }
 
     @GetMapping("id/{id}")
-    public Domaine getDomaineById(@PathVariable final Long id) {
+    public DomaineDto getDomaineById(@PathVariable final Long id) {
         try {
             return domaineService.findById(id);
         } catch (NotFoundException domaineNotFoundException) {
@@ -38,13 +39,13 @@ public class DomaineController {
     }
 
     @GetMapping
-    public List<Domaine> getAll() {
+    public List<DomaineDto> getAll() {
         return domaineService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public Domaine create(@RequestBody Domaine domaine) {
+    public DomaineDto create(@RequestBody Domaine domaine) {
         try {
             return domaineService.create(domaine);
         } catch (AlreadyExistException | InvalidArgumentException exception) {

@@ -1,5 +1,6 @@
 package com.ib.formationapi.controller;
 
+import com.ib.formationapi.dto.ThemeDto;
 import com.ib.formationapi.entity.Theme;
 import com.ib.formationapi.exception.AlreadyExistException;
 import com.ib.formationapi.exception.InvalidArgumentException;
@@ -17,33 +18,30 @@ import java.util.List;
 public class ThemeController {
     @Autowired
     private ThemeService themeService;
-
     @GetMapping("titre/{titre}")
-    public Theme getThemeByTitre(@PathVariable final String titre) {
+    public ThemeDto getThemeByTitre(@PathVariable final String titre) {
         try {
             return themeService.findByTitre(titre);
         } catch (NotFoundException themeNotFoundException) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, themeNotFoundException.getMessage());
         }
     }
-
     @GetMapping("id/{id}")
-    public Theme getThemeById(@PathVariable final Long id) {
+    public ThemeDto getThemeById(@PathVariable final Long id) {
         try {
             return themeService.findById(id);
         } catch (NotFoundException themeNotFoundException) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, themeNotFoundException.getMessage());
         }
     }
-
     @GetMapping
-    public List<Theme> getAll() {
+    public List<ThemeDto> getAll() {
         return themeService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Theme create(@RequestBody Theme theme) {
+    public ThemeDto create(@RequestBody Theme theme) {
         try {
             return themeService.create(theme);
         } catch (AlreadyExistException | InvalidArgumentException exception) {
