@@ -7,7 +7,8 @@ import { NotFoundComponent } from './_commons/not-found/not-found.component';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'catalogue', component: FormationComponent},
-  {path: 'catalogue/themes', component: ThemeComponent},
+  {path: 'catalogue/:type', component: ThemeComponent},
+  {path: 'catalogue/:type/:id', component: ThemeComponent},
   {path: 'catalogue/themes/:type', component: FormationComponent},
   {path: 'catalogue/themes/:type/:id', component: FormationComponent},
   {path: '**', component: NotFoundComponent},

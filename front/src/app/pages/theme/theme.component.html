@@ -1,3 +1,16 @@
-<li *ngFor="let formation of formations">
-   <a routerLink="/catalogue/themes/formations/{{formation.id}}">{{formation.intitule}}</a>
-</li>
+<div *ngIf="themes">
+  <div *ngFor="let sousThemes of themes.sousThemeListe">
+    <div>
+      <li>
+        <a >{{sousThemes.titre}}</a>
+      </li>
+      <div *ngFor="let formation of formations">
+        <li *ngIf="sousThemes.id == formation.theme.id">
+          <a routerLink="/catalogue/themes/formations/{{ formation.id }}">{{formation.intitule}}</a>
+        </li>
+      </div>
+    </div>
+  </div>
+  <li>
+  </li>
+</div>
