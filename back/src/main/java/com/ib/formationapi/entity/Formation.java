@@ -1,6 +1,4 @@
 package com.ib.formationapi.entity;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
