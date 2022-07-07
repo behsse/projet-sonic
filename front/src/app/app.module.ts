@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FormationComponent } from './pages/formation/formation.component';
 import { ThemeComponent } from './pages/theme/theme.component';
 import { SousthemeComponent } from './pages/soustheme/soustheme.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SousthemeComponent } from './pages/soustheme/soustheme.component';
     HomeComponent,
     FormationComponent,
     ThemeComponent,
-    SousthemeComponent
+    SousthemeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
