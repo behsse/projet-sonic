@@ -1,16 +1,32 @@
-<div *ngIf="themes">
+<div *ngIf="themes" class="theme">
+
   <div *ngFor="let sousThemes of themes.sousThemeListe">
-    <div>
-      <li>
-        <a >{{sousThemes.titre}}</a>
-      </li>
-      <div *ngFor="let formation of formations">
-        <li *ngIf="sousThemes.id == formation.theme.id">
-          <a routerLink="/catalogue/themes/formations/{{ formation.id }}">{{formation.intitule}}</a>
+
+    <div class="theme-container">
+      <div class="sousThemeTitre">
+        <li>
+          <p>{{sousThemes.titre}}</p>
         </li>
       </div>
+      <div *ngFor="let formation of formations" class="formation-list">
+        <a routerLink="/catalogue/themes/formations/{{ formation.id }}" >
+
+          <li *ngIf="sousThemes.id == formation.theme.id" class="formationTitre">
+            <div class="ref">
+              <p>{{formation.id}}</p>
+            </div>
+            <div class="formation">
+              <p>{{formation.intitule}}</p>
+            </div>
+            <div class="duree">
+              <p>{{formation.duree}}</p>
+            </div>
+          </li>
+
+        </a>
+      </div>
     </div>
+
   </div>
-  <li>
-  </li>
+
 </div>

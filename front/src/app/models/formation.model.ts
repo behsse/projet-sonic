@@ -13,6 +13,7 @@ export default interface Formation extends Theme, Session {
   estIntra: boolean;
   estDistanciel: boolean;
   image: string;
+  reference : string;
   theme: Theme;
   session : Session;
 }
