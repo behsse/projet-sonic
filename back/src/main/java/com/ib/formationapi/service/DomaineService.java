@@ -1,10 +1,12 @@
 package com.ib.formationapi.service;
 
 import com.ib.formationapi.dao.DomaineDao;
+import com.ib.formationapi.dto.DomaineDto;
 import com.ib.formationapi.entity.Domaine;
 import com.ib.formationapi.exception.AlreadyExistException;
 import com.ib.formationapi.exception.InvalidArgumentException;
 import com.ib.formationapi.exception.NotFoundException;
+import com.ib.formationapi.mapper.DomaineMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * classe de service de l'entité domaine
@@ -23,21 +26,26 @@ public class DomaineService {
     @Autowired
     private DomaineDao domaineDao;
 
+    @Autowired
+    private DomaineMapper domaineMapper;
+
     /**
      * c'est une méthode qui permet de récuperer la liste des domaines
      *
      * @return la liste de domaine
      */
-    public List<Domaine> findAll() {
-        return this.domaineDao.findAll();
+    public List<DomaineDto> findAll() {
+        final List<Domaine> domaineliste = domaineDao.findAll();
+        return domaineliste.stream().map(domaine -> domaineMapper.entityToDto(domaine)).collect(Collectors.toList());
+
     }
 
-    public Domaine findById(Long id) throws NotFoundException {
+    public DomaineDto findById(Long id) throws NotFoundException {
         Optional<Domaine> optionalDomaine = this.domaineDao.findById(id);
         if (!optionalDomaine.isPresent()) {
             throw new NotFoundException("le domaine avec l'id " + id + "n'existe pas");
         }
-        return optionalDomaine.get();
+        return domaineMapper.entityToDto(optionalDomaine.get());
     }
 
     /**
@@ -46,12 +54,12 @@ public class DomaineService {
      * @param intitule l'intitule du domaine
      * @return un domaine
      */
-    public Domaine findByIntitule(String intitule) throws NotFoundException {
+    public DomaineDto findByIntitule(String intitule) throws NotFoundException {
         final Optional<Domaine> optionalDomaine = domaineDao.findByIntitule(intitule);
         if (!optionalDomaine.isPresent()) {
             throw new NotFoundException("le domaine avec l'intitule " + intitule + " n'existe pas");
         }
-        return optionalDomaine.get();
+        return domaineMapper.entityToDto(optionalDomaine.get());
     }
 
 
@@ -61,7 +69,7 @@ public class DomaineService {
      * @param domaine q'on va créer
      * @return un domaine
      */
-    public Domaine create(Domaine domaine) throws AlreadyExistException, InvalidArgumentException {
+    public DomaineDto create(Domaine domaine) throws AlreadyExistException, InvalidArgumentException {
         if (domaine == null) {
             throw new InvalidArgumentException("le domaine ne doit pas être null");
         }
@@ -69,7 +77,7 @@ public class DomaineService {
         if (domaineDao.findByIntitule(domaine.getIntitule()).isPresent()) {
             throw new AlreadyExistException("Le domaine avec l'intitulé " + domaine.getIntitule() + " existe déja");
         }
-        return this.domaineDao.save(domaine);
+        return domaineMapper.entityToDto(domaineDao.save(domaine));
     }
 
     /**
@@ -79,11 +87,11 @@ public class DomaineService {
      * @param id      du domaine qu'on veut mettre à jour
      * @return un domaine
      */
-    public Domaine update(Domaine domaine, Long id) {
+    public DomaineDto update(Domaine domaine, Long id) throws NotFoundException {
         if (!this.domaineDao.existsById(domaine.getId())) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "le domaine n'a pas été mise à jour");
+            throw new NotFoundException("le domaine " + id +" n'a pas été mise à jour car introuvable");
         }
-        return this.domaineDao.save(domaine);
+        return domaineMapper.entityToDto(domaineDao.save(domaine));
     }
 
     /**

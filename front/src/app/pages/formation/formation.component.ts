@@ -48,3 +48,4 @@ export class FormationComponent implements OnInit {
     }
   }
 }
+

@@ -1,5 +1,6 @@
 package com.ib.formationapi.controller;
 
+import com.ib.formationapi.dto.FormationDto;
 import com.ib.formationapi.entity.Formation;
 import com.ib.formationapi.exception.AlreadyExistException;
 import com.ib.formationapi.exception.NotFoundException;
@@ -20,7 +21,7 @@ public class FormationController {
     private FormationService formationService;
 
     @GetMapping("intitule/{intitule}")
-    public Formation getFormationByIntitule(@PathVariable final String intitule) {
+    public FormationDto getFormationByIntitule(@PathVariable final String intitule) {
         try {
             return formationService.findByIntitule(intitule);
         } catch (NotFoundException formationNotFoundException) {
@@ -28,8 +29,13 @@ public class FormationController {
         }
     }
 
+    @GetMapping("themes/{idTheme}")
+    public List<FormationDto> getFormationByThemeId(@PathVariable final Long idTheme) {
+        return formationService.findByThemeId(idTheme);
+    }
+
     @GetMapping("id/{id}")
-    public Formation getFormationById(@PathVariable final Long id) {
+    public FormationDto getFormationById(@PathVariable final Long id) {
         try {
             return formationService.findById(id);
         } catch (NotFoundException formationNotFoundException) {
@@ -38,13 +44,13 @@ public class FormationController {
     }
 
     @GetMapping
-    public List<Formation> getAll() {
+    public List<FormationDto> getAll() {
         return formationService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Formation create(@RequestBody Formation formation) {
+    public FormationDto create(@RequestBody Formation formation) {
         try {
             return formationService.create(formation);
         } catch (AlreadyExistException | InvalidArgumentException exception) {

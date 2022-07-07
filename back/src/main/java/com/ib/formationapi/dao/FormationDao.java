@@ -4,6 +4,7 @@ import com.ib.formationapi.entity.Formation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -15,4 +16,6 @@ public interface FormationDao extends JpaRepository<Formation, Long> {
      * @return une formation
      */
     public Optional<Formation> findByIntitule(String intitule);
+
+    List<Formation> findAllByThemeId(Long idTheme);
 }
