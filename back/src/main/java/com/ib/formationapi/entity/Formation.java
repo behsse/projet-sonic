@@ -1,11 +1,13 @@
 package com.ib.formationapi.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -37,4 +39,8 @@ public class Formation {
     @JoinColumn(name = "id_theme")
 //    @JsonBackReference
     private Theme theme;
+
+    @ManyToMany(mappedBy = "formationsListe")
+    @JsonIgnore
+    private List<Session> sessionsListe;
 }

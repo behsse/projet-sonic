@@ -1,9 +1,10 @@
 package com.ib.formationapi.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Personne {
+public class  Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,5 +32,5 @@ public class Personne {
             name = "personne_session",
             joinColumns = @JoinColumn(name = "id_personne"),
             inverseJoinColumns = @JoinColumn(name = "id_session"))
-    private List<Session> sessionsListe;
+    private List<Session> sessionsListe = new ArrayList<>();
 }

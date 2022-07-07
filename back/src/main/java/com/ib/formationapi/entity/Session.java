@@ -1,5 +1,6 @@
 package com.ib.formationapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,15 +33,11 @@ public class Session {
             inverseJoinColumns = @JoinColumn(name = "id_formation"))
     private List<Formation>  formationsListe;
 
-    @ManyToMany(mappedBy = "personnesListe")
-    private List<Personne> personnesListe;
 
-    /**
-     * A mettre dans la classe formation
+  /*
+    @ManyToMany(mappedBy = "sessionsListe")
+    @JsonIgnore
+    private List<Personne> personnesListe;*/
 
-     @ManyToMany(mappedBy = "formationsListe")
-     private List<Session> sessionsListe;
-
-     */
 
 }
