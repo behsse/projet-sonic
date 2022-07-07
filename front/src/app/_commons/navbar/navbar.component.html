@@ -21,7 +21,7 @@
           </div>
             <div class="theme">
               <li *ngFor="let theme of themes" class="list-theme">
-                  <a *ngIf="theme.estSousTheme == false" routerLink="/catalogue/themes">{{theme.titre}}</a>
+                  <a *ngIf="theme.estSousTheme == false" routerLink="/catalogue/themes/{{theme.id}}">{{theme.titre}}</a>
               </li>
             </div>
         </ul>

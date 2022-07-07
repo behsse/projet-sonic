@@ -22,6 +22,7 @@ export class FormationComponent implements OnInit {
   sessions : Session[] = [];
 
 
+
   constructor(private formationService: FormationService, private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -47,5 +48,6 @@ export class FormationComponent implements OnInit {
       this.router.navigate(['/not-found']);
     }
   }
+
 }
 
