@@ -1,0 +1,33 @@
+.globalTheme{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  // justify-content: space-around;
+  margin: 0 auto;
+  padding: 100px 0;
+  justify-content: center;
+
+
+
+    .boxTheme{
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      align-content: center;
+      justify-content: space-around;
+      width: 250PX;
+      height: 150PX;
+      margin: 20px ;
+
+      background-color: #fbf7f5;
+
+
+
+
+  }
+
+
+}
+
