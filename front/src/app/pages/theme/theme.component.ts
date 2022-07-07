@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Domaine from 'src/app/models/domaine.model';
 
 import Formation from 'src/app/models/formation.model';
 import Theme from 'src/app/models/theme.model';
+import { DomaineService } from 'src/app/service/domaine.service';
 
 import { FormationService } from 'src/app/service/formation.service';
 import { ThemeService } from 'src/app/service/theme.service';
@@ -18,9 +20,8 @@ export class ThemeComponent implements OnInit {
   formations: Formation[] = [];
   themes!: Theme;
   sousThemes: Theme [] = [];
-  forma!: Formation;
 
-  constructor(private formationService: FormationService, private themeService: ThemeService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private formationService: FormationService, private themeService: ThemeService, private domaineService: DomaineService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -30,7 +31,6 @@ export class ThemeComponent implements OnInit {
 
     this.formationService.getFormations().subscribe((formation) => {this.formations = formation});
     this.themeService.getThemes().subscribe((sousTheme) => {this.sousThemes = sousTheme});
-
   }
 
   private subscribeTheme(id : number) : void{

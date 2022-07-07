@@ -8,6 +8,11 @@ li{
 
 .theme {
   padding: 100px 150px;
+  h3{
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 50px;
+  }
   .theme-container{
     width: 100%;
     .sousThemeTitre{
@@ -30,10 +35,10 @@ li{
       background-color: #fbf7f5;
       border-bottom: 1px solid #d6d3d2;
       .ref{
-        width: 5%;
+        width: 10%;
       }
       .formation{
-        width: 65%;
+        width: 60%;
       }
       .duree{
         width: 30%;

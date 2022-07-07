@@ -1,5 +1,6 @@
 <div *ngIf="themes" class="theme">
 
+  <h3>{{themes.titre}}</h3>
   <div *ngFor="let sousThemes of themes.sousThemeListe">
 
     <div class="theme-container">
@@ -13,7 +14,7 @@
 
           <li *ngIf="sousThemes.id == formation.theme.id" class="formationTitre">
             <div class="ref">
-              <p>{{formation.id}}</p>
+              <p>{{formation.reference}}</p>
             </div>
             <div class="formation">
               <p>{{formation.intitule}}</p>
