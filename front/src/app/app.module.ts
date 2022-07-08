@@ -20,7 +20,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ListeThemeComponent } from './pages/catalogue/liste-theme/liste-theme.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DashboardPageComponent } from './pages/dashboard/dashboard-page/dashboard-page.component';
-import { FormsUpdateFormationComponent } from './pages/dashboard/dashboard-page/forms-update-formation/forms-update-formation.component';
 import { FormsFormationComponent } from './pages/dashboard/dashboard-page/forms-formation/forms-formation.component';
 
 @NgModule({
@@ -37,7 +36,6 @@ import { FormsFormationComponent } from './pages/dashboard/dashboard-page/forms-
     ListeThemeComponent,
     DashboardComponent,
     DashboardPageComponent,
-    FormsUpdateFormationComponent,
     FormsFormationComponent
   ],
   imports: [

@@ -8,9 +8,21 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class FormsFormationComponent implements OnInit {
 
-  formation: FormGroup = this.formBuilder.group ({
-
+  formationUpadate: FormGroup = this.formBuilder.group ({
+    intitule: ['', Validators.required],
+    publicConcerne: ['', Validators.required],
+    description: ['', Validators.required],
+    objectif: ['', Validators.required],
+    prerequis: ['', Validators.required],
+    duree: ['', Validators.required],
+    estIntra: ['', Validators.required],
+    estDistanciel: ['', Validators.required],
+    reference: ['', Validators.required]
   })
+
+  submitted: boolean = false;
+
+  formation: any[] = [];
 
   constructor( private formBuilder : FormBuilder) { }
 
