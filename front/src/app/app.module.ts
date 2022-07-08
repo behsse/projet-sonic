@@ -12,6 +12,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { FormationComponent } from './pages/formation/formation.component';
 import { ThemeComponent } from './pages/theme/theme.component';
 import { SousthemeComponent } from './pages/soustheme/soustheme.component';
+import { CatalogueComponent } from './pages/catalogue/catalogue.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ListeThemeComponent } from './pages/catalogue/liste-theme/liste-theme.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
@@ -24,13 +30,19 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     FormationComponent,
     ThemeComponent,
     SousthemeComponent,
+    CatalogueComponent,
+    ListeThemeComponent,
     DashboardComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    LottieAnimationViewModule.forRoot()
+    MatSelectModule,
+    MatCardModule,
+    LottieAnimationViewModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

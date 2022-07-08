@@ -1,0 +1,21 @@
+
+<div class="container">
+  <div class="domaineSelect">
+    <mat-form-field appearance="fill">
+      <mat-label>Choisissez un domaine</mat-label>
+      <mat-select (selectionChange)="selectionnerDomaine($event.value)">
+        <mat-option *ngFor="let domaine of listeDomaine" [value]="domaine.id">{{domaine.intitule}}</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <app-liste-theme [listeTheme] = " getThemesList()">
+    </app-liste-theme>
+
+  </div>
+
+
+
+</div>
+
