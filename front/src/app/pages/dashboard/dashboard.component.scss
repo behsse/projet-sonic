@@ -1,0 +1,38 @@
+a {
+  text-decoration: none;
+}
+.flex{
+  display: flex;
+}
+.dashboard-page{
+  width: 100%;
+}
+.dash {
+  height: 100%;
+  .navbar {
+    padding: 20px;
+    width: 20%;
+    height: 100vh;
+    background-color: RGBa(200, 200, 200, 0.1);
+    li {
+      list-style-type: none;
+      margin: 10px 0;
+      border-radius: 10px;
+      transition: all 0.5s;
+      &:hover {
+        background-color: #d6d3d2;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        color: #816797;
+        svg {
+          width: 10%;
+          fill: #816797;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
