@@ -9,7 +9,6 @@ import { DomaineService } from 'src/app/service/domaine.service';
 import { FormationService } from 'src/app/service/formation.service';
 import { ThemeService } from 'src/app/service/theme.service';
 
-
 @Component({
   selector: 'app-theme',
   templateUrl: './theme.component.html',
