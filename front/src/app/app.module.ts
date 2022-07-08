@@ -18,7 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListeThemeComponent } from './pages/catalogue/liste-theme/liste-theme.component';
-
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { ListeThemeComponent } from './pages/catalogue/liste-theme/liste-theme.c
     SousthemeComponent,
     CatalogueComponent,
     ListeThemeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
