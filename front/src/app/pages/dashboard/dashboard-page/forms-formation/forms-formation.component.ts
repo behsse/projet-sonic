@@ -26,7 +26,6 @@ export class FormsFormationComponent implements OnInit {
 
   // Déclaration de la liste des formations
   formations: Formation[] = [];
-  formationCree: Formation;
 
   // Déclaration du formbuilder dans le constructeur
   constructor( private formBuilder : FormBuilder, private formationService: FormationService) { }
@@ -44,9 +43,8 @@ export class FormsFormationComponent implements OnInit {
     // Envoie de la formation au back
      this.formationService.createFormation(this.formationForm.value).subscribe(
       (format) => {
-        this.formationCree = format;
-         // Push du formulaire dans la liste
-         this.formations.push( this.formationCree);
+         // Push du formulaire dans la liste uniquement quand la formation a bien été ajouté à la bdd, réponse du back ok
+         this.formations.push(format);
         console.log(format)
       },
       (error)=> {
