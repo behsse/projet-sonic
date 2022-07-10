@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListeThemeComponent } from './pages/catalogue/liste-theme/liste-theme.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     SousthemeComponent,
     CatalogueComponent,
     ListeThemeComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
