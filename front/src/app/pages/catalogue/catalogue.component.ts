@@ -12,7 +12,8 @@ import { DomaineService } from 'src/app/service/domaine.service';
 })
 export class CatalogueComponent implements OnInit, OnDestroy {
   listeDomaine:Domaine []=[];
-  domaineSelectionne: Domaine;
+  domainesSelectionnes: Domaine [] = [];
+  themesSelectionnes: Theme [] = [];
   abonnement: Subscription = new Subscription();
   constructor(private domaineService: DomaineService) { }
 
@@ -23,15 +24,22 @@ export class CatalogueComponent implements OnInit, OnDestroy {
   }
 
   selectionnerDomaine(idDomaine: number) {
-    this.domaineSelectionne = <Domaine>(this.listeDomaine.find(domaine => domaine.id === idDomaine));
+    if(idDomaine == -1) {
+      this.domainesSelectionnes = this.listeDomaine;
+    } else {
+      this.domainesSelectionnes = [<Domaine>(this.listeDomaine.find(domaine => domaine.id === idDomaine))];
+    }
+    this.setThemesList();
 
   }
 ngOnDestroy(): void {
   this.abonnement.unsubscribe();
 }
-getThemesList(): Theme[] {
-  return this.domaineSelectionne?.themesListe || [];
+setThemesList(): Theme[] {
+  this.themesSelectionnes = this.domainesSelectionnes.flatMap(domaine => domaine.themesListe);
+  return this.themesSelectionnes;
 }
+
 
 
 }
