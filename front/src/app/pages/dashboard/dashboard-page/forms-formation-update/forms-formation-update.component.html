@@ -1,0 +1,107 @@
+<p>forms-formation-update works!</p>
+<div>
+  <form [formGroup]="formationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <select name="formation_nom" id="">
+        <option *ngFor="let formation of Allformations">
+          {{ formation.intitule }}
+        </option>
+      </select>
+
+      <div>
+        <label>Reference :</label>
+        <input type="text" formControlName="reference" placeholder="ref"/>
+        <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
+        <!-- Il affichera que le message que si le form est soumis -->
+        <!-- <span *ngIf="submitted && !form['intitule'].valid">
+          * Nom invalide
+        </span> -->
+      </div>
+
+      <div>
+        <label>Nom :</label>
+        <input type="text" formControlName="intitule" />
+        <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
+        <!-- Il affichera que le message que si le form est soumis -->
+        <!-- <span *ngIf="submitted && !form['intitule'].valid">
+          * Nom invalide
+        </span> -->
+      </div>
+
+      <div>
+        <label>publicConcerne :</label>
+        <input type="text" formControlName="publicConcerne" />
+        <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
+        <!-- Il affichera que le message que si le form est soumis -->
+        <!-- <span *ngIf="submitted && !form['intitule'].valid">
+          * Nom invalide
+        </span> -->
+      </div>
+
+      <div>
+        <label>description :</label>
+        <input type="text" formControlName="description" />
+        <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
+        <!-- Il affichera que le message que si le form est soumis -->
+        <!-- <span *ngIf="submitted && !form['intitule'].valid">
+          * Nom invalide
+        </span> -->
+      </div>
+
+      <div>
+        <label>objectif :</label>
+        <input type="text" formControlName="objectif" />
+        <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
+        <!-- Il affichera que le message que si le form est soumis -->
+        <!-- <span *ngIf="submitted && !form['intitule'].valid">
+          * Nom invalide
+        </span> -->
+      </div>
+
+      <div>
+        <label>prerequis :</label>
+        <input type="text" formControlName="prerequis" />
+        <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
+        <!-- Il affichera que le message que si le form est soumis -->
+        <!-- <span *ngIf="submitted && !form['intitule'].valid">
+          * Nom invalide
+        </span> -->
+      </div>
+
+      <div>
+        <label>duree :</label>
+        <input type="text" formControlName="duree" />
+        <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
+        <!-- Il affichera que le message que si le form est soumis -->
+        <!-- <span *ngIf="submitted && !form['intitule'].valid">
+          * Nom invalide
+        </span> -->
+      </div>
+
+      <div>
+        <label>estIntra :</label>
+        <input type="number" formControlName="estIntra" />
+        <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
+        <!-- Il affichera que le message que si le form est soumis -->
+        <!-- <span *ngIf="submitted && !form['intitule'].valid">
+          * Nom invalide
+        </span> -->
+      </div>
+
+      <div>
+        <label>estDistanciel :</label>
+        <input type="number" formControlName="estDistanciel" />
+        <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
+        <!-- Il affichera que le message que si le form est soumis -->
+        <!-- <span *ngIf="submitted && !form['intitule'].valid">
+          * Nom invalide
+        </span> -->
+      </div>
+
+    </div>
+
+    <div>
+      <button type="submit">Ajouter</button>
+    </div>
+  </form>
+</div>

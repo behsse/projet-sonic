@@ -21,6 +21,7 @@ import { ListeThemeComponent } from './pages/catalogue/liste-theme/liste-theme.c
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DashboardPageComponent } from './pages/dashboard/dashboard-page/dashboard-page.component';
 import { FormsFormationComponent } from './pages/dashboard/dashboard-page/forms-formation/forms-formation.component';
+import { FormsFormationUpdateComponent } from './pages/dashboard/dashboard-page/forms-formation-update/forms-formation-update.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FormsFormationComponent } from './pages/dashboard/dashboard-page/forms-
     ListeThemeComponent,
     DashboardComponent,
     DashboardPageComponent,
-    FormsFormationComponent
+    FormsFormationComponent,
+    FormsFormationUpdateComponent
   ],
   imports: [
     BrowserModule,
