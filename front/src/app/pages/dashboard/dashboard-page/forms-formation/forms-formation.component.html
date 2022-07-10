@@ -93,12 +93,12 @@
 
 
     <div>
-      <button type="submit"> Ajouter</button>
+      <button type="submit" [disabled]="formationForm.invalid"> Ajouter</button>
     </div>
   </form>
 </div>
 
-<div>
-  <p>{{formations[0].reference}}</p>
+<div *ngIf="formations && formations.length >= 0">
+  <p>{{formations[0]?.reference}}</p>
 </div>
 

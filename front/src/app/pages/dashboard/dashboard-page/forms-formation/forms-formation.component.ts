@@ -9,7 +9,6 @@ import { FormationService } from 'src/app/service/formation.service';
   styleUrls: ['./forms-formation.component.scss']
 })
 export class FormsFormationComponent implements OnInit {
-
   formationForm: FormGroup = this.formBuilder.group ({
     reference: ['', Validators.required],
     intitule: ['', Validators.required],
@@ -27,26 +26,40 @@ export class FormsFormationComponent implements OnInit {
 
   // Déclaration de la liste des formations
   formations: Formation[] = [];
+  formationCree: Formation;
 
   // Déclaration du formbuilder dans le constructeur
   constructor( private formBuilder : FormBuilder, private formationService: FormationService) { }
 
   ngOnInit(): void {
-
-    this.formationService.createFormation(this.formations[0]).subscribe((format) => {this.formations[0] = format});
+      // A SUPPRIMER on init c'est lors du chargement du composant, formations est vide au chargement donc formations[0] n'existe pas, il faut pas l' envoyer au back
+    //this.formationService.createFormation(this.formations[0]).subscribe((format) => {this.formations[0] = format});
 
   }
 
   // Déclaration d'une méthode pour ajouter les formations
   // Elle est privée et sera appelée par la méthode onSubmit
   private addFormation(){
-    // Push du formulaire dans la liste
-    this.formations.push(this.formationForm.value);
+
+    // Envoie de la formation au back
+     this.formationService.createFormation(this.formationForm.value).subscribe(
+      (format) => {
+        this.formationCree = format;
+         // Push du formulaire dans la liste
+         this.formations.push( this.formationCree);
+        console.log(format)
+      },
+      (error)=> {
+        // en cas d'erreur
+      console.error(error);
+    });
+
     //Reset du formulaire
     this.formationForm.reset();
     // On repasse submitted à false
     this.submitted = false;
   }
+
 
   // Méthode onSubmit pour gérer la soumission
   onSubmit(): boolean {
