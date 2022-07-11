@@ -11,9 +11,10 @@ export default interface Formation extends Theme, Session {
   prerequis: string;
   duree: string;
   estIntra: boolean;
-  estDistanciel: boolean;
+  distanciel: boolean;
   image: string;
   reference : string;
+  tarif: number;
   theme: Theme;
   session : Session;
 }

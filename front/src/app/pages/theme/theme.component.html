@@ -13,9 +13,9 @@
       <div *ngFor="let formation of formations" class="formation-list">
         <a routerLink="/catalogue/themes/formations/{{ formation.id }}" >
 
-          <li *ngIf="sousThemes.id == formation.theme.id" class="formationTitre">
+          <li  *ngIf="sousThemes.id == formation.theme.id" class="formationTitre">
             <div class="ref">
-              <p>{{formation.reference}}</p>
+              <p>{{formation.theme.id}}</p>
             </div>
             <div class="formation">
               <p>{{formation.intitule}}</p>

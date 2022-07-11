@@ -1,96 +1,88 @@
-<div>
+<div *ngIf="themes">
 
   <form [formGroup]="formationForm" (ngSubmit)="onSubmit()">
     <div>
       <label>Reference :</label>
       <input type="text" formControlName="reference" />
-      <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
-      <!-- Il affichera que le message que si le form est soumis -->
-      <!-- <span *ngIf="submitted && !form['intitule'].valid">
-        * Nom invalide
-      </span> -->
     </div>
 
     <div>
       <label>Nom :</label>
       <input type="text" formControlName="intitule" />
-      <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
-      <!-- Il affichera que le message que si le form est soumis -->
-      <!-- <span *ngIf="submitted && !form['intitule'].valid">
-        * Nom invalide
-      </span> -->
     </div>
 
     <div>
       <label>publicConcerne :</label>
       <input type="text" formControlName="publicConcerne" />
-      <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
-      <!-- Il affichera que le message que si le form est soumis -->
-      <!-- <span *ngIf="submitted && !form['intitule'].valid">
-        * Nom invalide
-      </span> -->
     </div>
 
     <div>
       <label>description :</label>
       <input type="text" formControlName="description" />
-      <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
-      <!-- Il affichera que le message que si le form est soumis -->
-      <!-- <span *ngIf="submitted && !form['intitule'].valid">
-        * Nom invalide
-      </span> -->
     </div>
 
     <div>
       <label>objectif :</label>
       <input type="text" formControlName="objectif" />
-      <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
-      <!-- Il affichera que le message que si le form est soumis -->
-      <!-- <span *ngIf="submitted && !form['intitule'].valid">
-        * Nom invalide
-      </span> -->
     </div>
 
     <div>
       <label>prerequis :</label>
       <input type="text" formControlName="prerequis" />
-      <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
-      <!-- Il affichera que le message que si le form est soumis -->
-      <!-- <span *ngIf="submitted && !form['intitule'].valid">
-        * Nom invalide
-      </span> -->
     </div>
 
     <div>
       <label>duree :</label>
       <input type="text" formControlName="duree" />
-      <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
-      <!-- Il affichera que le message que si le form est soumis -->
-      <!-- <span *ngIf="submitted && !form['intitule'].valid">
-        * Nom invalide
-      </span> -->
     </div>
 
     <div>
-      <label>estIntra :</label>
-      <input type="number" formControlName="estIntra" />
-      <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
-      <!-- Il affichera que le message que si le form est soumis -->
-      <!-- <span *ngIf="submitted && !form['intitule'].valid">
-        * Nom invalide
-      </span> -->
+      <label>Intra :</label>
+      <input type="checkbox" value="1" formControlName="estIntra" />
+      <label for="text">Oui</label>
+      <input type="checkbox" value="0" formControlName="estIntra" />
+      <label for="text">Non</label>
     </div>
 
     <div>
-      <label>estDistanciel :</label>
-      <input type="number" formControlName="estDistanciel" />
-      <!-- Ajout d'un ngIf pour afficher un message si le nom est invalide -->
-      <!-- Il affichera que le message que si le form est soumis -->
-      <!-- <span *ngIf="submitted && !form['intitule'].valid">
-        * Nom invalide
-      </span> -->
+      <label>distanciel :</label>
+      <input type="checkbox" value="1" formControlName="distanciel" />
+      <label for="text">Oui</label>
+      <input type="checkbox" value="0" formControlName="distanciel" />
+      <label for="text">Non</label>
     </div>
 
+    <!-- <div>
+      <select name="" id="" formControlName = "themeId">
+        <ng-container *ngFor="let theme of getListTheme()">
+          <option [value]="theme.id" >
+              {{theme.titre}}
+        </option>
+      </ng-container>
+
+    </select>
+  </div> -->
+
+  <div>
+    <select (change)="onChange($event) "name="" id="" formControlName = "themeId">
+      <ng-container *ngFor="let theme of getListTheme()">
+        <option [value]="theme.id" >
+            {{theme.titre}}
+      </option>
+    </ng-container>
+
+  </select>
+</div>
+
+  <div *ngIf="themeId != 0">
+    <select name="" id="" formControlName = "sousThemeId">
+      <ng-container *ngFor="let theme of getListSousTheme()">
+          <option [value]="theme.id">
+              {{theme.titre}}
+        </option>
+        </ng-container>
+      </select>
+    </div>
 
     <div>
       <button type="submit" [disabled]="formationForm.invalid"> Ajouter</button>

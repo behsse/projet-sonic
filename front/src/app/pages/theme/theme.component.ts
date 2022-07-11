@@ -25,11 +25,14 @@ export class ThemeComponent implements OnInit {
   ngOnInit(): void {
 
     const type = this.route.snapshot.paramMap.get('type');
-    const id = this.route.snapshot.paramMap.get('id');
-    this.setSubscribe(type, id);
+    const id = this.route.params.subscribe((params) => {
+      this.setSubscribe(type, params["id"]);
+      this.formationService.getFormations().subscribe((formation) => {this.formations = formation});
+      this.themeService.getThemes().subscribe((sousTheme) => {this.sousThemes = sousTheme});
+    })
 
-    this.formationService.getFormations().subscribe((formation) => {this.formations = formation});
-    this.themeService.getThemes().subscribe((sousTheme) => {this.sousThemes = sousTheme});
+
+
   }
 
   private subscribeTheme(id : number) : void{
