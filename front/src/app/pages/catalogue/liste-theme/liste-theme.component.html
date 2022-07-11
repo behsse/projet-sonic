@@ -1,17 +1,19 @@
+<div class="domaineSection" *ngIf="domaine.themesListe.length > 0">
+  <div  class="domaine">
+    Domaine {{ domaine.intitule}}
+  </div>
 
-<div class="globalTheme">
 
-    <div *ngFor="let theme of listeTheme" >
-
-
-      <div class="boxTheme">
-        {{theme.titre}}
+  <div class="globalTheme">
+      <div *ngFor="let theme of domaine.themesListe" class="boxTheme">
+          {{theme.titre}}
       </div>
-
 
     </div>
 
-  </div>
+
+</div>
+
 
 
 

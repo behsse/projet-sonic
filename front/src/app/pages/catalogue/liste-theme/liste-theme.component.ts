@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Domaine from 'src/app/models/domaine.model';
 import Theme from 'src/app/models/theme.model';
 
 @Component({
@@ -8,7 +9,7 @@ import Theme from 'src/app/models/theme.model';
 })
 export class ListeThemeComponent implements OnInit {
 
- @Input() listeTheme:Theme[]=[];
+ @Input() domaine: Domaine;
   constructor() { }
 
   ngOnInit(): void {
