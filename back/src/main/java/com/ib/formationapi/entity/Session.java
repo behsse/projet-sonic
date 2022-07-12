@@ -25,6 +25,7 @@ public class Session {
     private String typeSession;
     @Column(name="session_valide",nullable = false, columnDefinition = "TINYINT(1)")
     private boolean sessionValide;
+    private String adresseSession;
 
     @ManyToMany
     @JoinTable(

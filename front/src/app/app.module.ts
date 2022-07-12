@@ -24,6 +24,7 @@ import { FormsFormationComponent } from './pages/dashboard/dashboard-page/forms-
 import { FormsFormationUpdateComponent } from './pages/dashboard/dashboard-page/forms-formation-update/forms-formation-update.component';
 import { FormationDetailsComponent } from './pages/dashboard/dashboard-page/formation-details/formation-details.component';
 import { FormationComposantsComponent } from './pages/dashboard/dashboard-page/formation-composants/formation-composants.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FormationComposantsComponent } from './pages/dashboard/dashboard-page/f
     FormsFormationComponent,
     FormsFormationUpdateComponent,
     FormationDetailsComponent,
-    FormationComposantsComponent
+    FormationComposantsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
