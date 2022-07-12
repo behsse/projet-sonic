@@ -13,11 +13,11 @@ input[type=text], textarea, input[type=email] {
 label{margin-right: 0px;
     margin-left: 0px;
     width: 100%;}
-    
+
 #message {
     height:200px;
-}    
-  
+}
+
 input[type=submit] {
     background-color: green;
     color: white;
@@ -26,22 +26,22 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
-  
+
 input[type=submit]:hover {
     background-color: #816797;
 }
-  
+
   .container {
     box-sizing : border-box;
     border-radius:5px;
-    background-color:#f2f2f2;
+    background-color:#fbf7f5;
     padding:20px;
     width: 100%;
-    max-width: 500px;
+    max-width: 800px;
     margin:0 auto;
     margin-top: 25px;
     margin-bottom: 25px;
-    box-shadow: 8px 4px 4px gray;
+    /*box-shadow: 8px 4px 4px gray;*/
   }
   h1  {
     color: #816797;
