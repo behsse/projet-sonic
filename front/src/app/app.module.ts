@@ -22,6 +22,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DashboardPageComponent } from './pages/dashboard/dashboard-page/dashboard-page.component';
 import { FormsFormationComponent } from './pages/dashboard/dashboard-page/forms-formation/forms-formation.component';
 import { FormsFormationUpdateComponent } from './pages/dashboard/dashboard-page/forms-formation-update/forms-formation-update.component';
+import { FormationDetailsComponent } from './pages/dashboard/dashboard-page/formation-details/formation-details.component';
+import { FormationComposantsComponent } from './pages/dashboard/dashboard-page/formation-composants/formation-composants.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { FormsFormationUpdateComponent } from './pages/dashboard/dashboard-page/
     DashboardComponent,
     DashboardPageComponent,
     FormsFormationComponent,
-    FormsFormationUpdateComponent
+    FormsFormationUpdateComponent,
+    FormationDetailsComponent,
+    FormationComposantsComponent
   ],
   imports: [
     BrowserModule,

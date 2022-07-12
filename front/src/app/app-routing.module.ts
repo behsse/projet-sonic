@@ -1,6 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogueComponent } from './pages/catalogue/catalogue.component';
+import { FormationComposantsComponent } from './pages/dashboard/dashboard-page/formation-composants/formation-composants.component';
+import { FormationDetailsComponent } from './pages/dashboard/dashboard-page/formation-details/formation-details.component';
 import { FormsFormationUpdateComponent } from './pages/dashboard/dashboard-page/forms-formation-update/forms-formation-update.component';
 import { FormsFormationComponent } from './pages/dashboard/dashboard-page/forms-formation/forms-formation.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -17,7 +19,8 @@ const routes: Routes = [
   {path: 'catalogue/themes/:type/:id', component: FormationComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'dashboard/formation/ajout', component: FormsFormationComponent},
-  {path: 'dashboard/formation/suprression', component: FormsFormationUpdateComponent},
+  {path: 'dashboard/formation/modification', component: FormsFormationUpdateComponent},
+  {path: 'dashboard/formation/modification/:id', component: FormationDetailsComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

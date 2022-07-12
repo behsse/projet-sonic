@@ -1,0 +1,15 @@
+<div class="formation-list">
+  <li class="formationTitre">
+    <div class="ref">
+      <p>{{ formation.reference }}</p>
+    </div>
+    <div class="formation">
+      <p>{{ formation.intitule }}</p>
+    </div>
+    <div class="duree">
+      <p>{{ formation.duree }}</p>
+    </div>
+  </li>
+  <a routerLink="{{formation.id}}"> Modifier </a>
+  <button class="button-supp" (click)="deleteFormation()"> Supprimer </button>
+</div>

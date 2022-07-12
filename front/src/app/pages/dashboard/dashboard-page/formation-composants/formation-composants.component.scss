@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+}
+
+li{
+  list-style-type: none;
+}
+
+.formationTitre{
+  display: flex;
+  padding: 18px;
+  background-color: #fbf7f5;
+  border-bottom: 1px solid #d6d3d2;
+  .ref{
+    width: 10%;
+  }
+  .formation{
+    width: 60%;
+  }
+  .duree{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

@@ -25,10 +25,10 @@ export class FormationService {
   }
 
   updateFormation(formation: Formation): Observable<Formation>{
-    return this.httpClient.put<Formation>(`${this.apiUrl}/formations/${formation.id}`, formation);
+    return this.httpClient.put<Formation>(`${this.apiUrl}/formations/id/${formation.id}`, formation);
   }
 
   deleteFormation(id: number): Observable<Formation>{
-    return this.httpClient.delete<Formation>(`${this.apiUrl}/formations/${id}`);
+    return this.httpClient.delete<Formation>(`${this.apiUrl}/formations/id/${id}`);
   }
 }
