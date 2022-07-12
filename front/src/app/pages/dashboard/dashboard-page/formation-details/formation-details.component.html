@@ -2,7 +2,7 @@
 
 <p>Liste formation {{id}}</p>
 
-<form [formGroup]="formationForm" (ngSubmit)="updateFormation()">
+<form [formGroup]="formationForm" (ngSubmit)="updateFormation()" class="formationForm">
 
   <label for="reference">Référence : </label>
   <input type="text" formControlName="reference">
@@ -25,17 +25,29 @@
   <label for="duree">La durée :</label>
   <input type="text" formControlName="duree">
 
-  <label for="estIntra">La formation est-elle en intra ?</label>
-  <input type="checkbox" value="1" formControlName="estIntra" />
-  <label for="text">Oui</label>
-  <input type="checkbox" value="0" formControlName="estIntra" />
-  <label for="text">Non</label>
+  <div class="check-intra flex">
+    <label for="estIntra">La formation est-elle en intra ?</label>
+    <div class="true-intra">
+      <input type="checkbox" value="1" formControlName="estIntra" />
+      <label for="text">Oui</label>
+    </div>
+    <div class="false-intra">
+      <input type="checkbox" value="0" formControlName="estIntra" />
+      <label for="text">Non</label>
+    </div>
+  </div>
 
-  <label for="estIntra">La formation est-elle en distanciel ?</label>
-  <input type="checkbox" value="1" formControlName="estDistanciel" />
-  <label for="text">Oui</label>
-  <input type="checkbox" value="0" formControlName="estDistanciel" />
-  <label for="text">Non</label>
+  <div class="check-dist flex">
+    <label for="estIntra">La formation est-elle en distanciel ?</label>
+    <div class="true-dist">
+      <input type="checkbox" value="1" formControlName="estDistanciel" />
+      <label for="text">Oui</label>
+    </div>
+    <div class="false-dist">
+      <input type="checkbox" value="0" formControlName="estDistanciel" />
+      <label for="text">Non</label>
+    </div>
+  </div>
 
   <label for="image">Lien de l'image</label>
   <input type="text" formControlName="image">
@@ -44,5 +56,6 @@
   <input type="text" formControlName="tarif">
 
   <button class="btn-modif" *ngIf="!displayLoading">Modifier</button>
+
   <p *ngIf="displayErrorMessage">Un problème est survenu pendant la modification.</p>
 </form>

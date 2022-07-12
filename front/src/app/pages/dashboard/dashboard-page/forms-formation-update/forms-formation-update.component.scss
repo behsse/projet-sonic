@@ -1,0 +1,17 @@
+.center{
+  width: 80%;
+  margin: 0 auto;
+}
+.formation-boddy{
+  margin: 50px 0;
+  .titre{
+    color: #816797;
+    font-size: 30px;
+  }
+  .nav-gestion{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+}

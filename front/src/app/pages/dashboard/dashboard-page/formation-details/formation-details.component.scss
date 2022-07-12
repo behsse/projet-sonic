@@ -1,0 +1,10 @@
+.flex{
+  display: flex;
+}
+.formationForm{
+  display: flex;
+  flex-direction: column;
+  .check-dist{
+    align-items: center;
+  }
+}

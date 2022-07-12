@@ -1,9 +1,27 @@
-<p>forms-formation-update works!</p>
+<div class="formation-boddy ">
 
-<div class="formation">
-  <ng-container *ngFor="let formation of formations">
-    <app-formation-composants [formation]="formation" (deleteFormationEvent)="deleteFormation($event)"></app-formation-composants>
-  </ng-container>
+  <div class="titre center">
+    <p>Gestion des formations</p>
+  </div>
+
+  <div class="nav-container center">
+    <div class="nav-gestion center">
+      <input type="text" placeholder="Search..">
+      <div class="trier">
+        <select name="pets" id="pet-select">
+          <option value="">Tier par</option>
+          <option value="dog">Ordre croissant</option>
+          <option value="cat">Ordre décroissant</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="formation">
+    <ng-container *ngFor="let formation of formations">
+      <app-formation-composants [formation]="formation" (deleteFormationEvent)="deleteFormation($event)"></app-formation-composants>
+    </ng-container>
+  </div>
+
+  <p *ngIf="errorMessage">Nous avons rencontré un problème, veuillez réessayer plus tard.</p>
 </div>
-
-<p *ngIf="errorMessage">Nous avons rencontré un problème, veuillez réessayer plus tard.</p>
