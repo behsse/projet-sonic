@@ -18,6 +18,7 @@ public class SessionDto {
     private String dateFin;
     private String typeSession;
     private boolean sessionValide;
+    private String adresseSession;
     private List<FormationDto> formationsListe;
     private List<PersonneDto> personnesListe;
 }
