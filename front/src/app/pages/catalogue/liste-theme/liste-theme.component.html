@@ -5,7 +5,7 @@
 
 
   <div class="globalTheme">
-      <div *ngFor="let theme of domaine.themesListe" class="boxTheme">
+      <div *ngFor="let theme of domaine.themesListe" class="boxTheme" (click) = "selectTheme(theme.id)">
           {{theme.titre}}
       </div>
 
