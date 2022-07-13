@@ -21,6 +21,7 @@ public class FormationDto {
     private ThemeDto theme;
     private double tarif;
     private String reference;
-
-
+    private String description;
+    private String image;
+    private boolean estIntra;
 }

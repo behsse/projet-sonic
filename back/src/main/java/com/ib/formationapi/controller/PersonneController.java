@@ -1,10 +1,10 @@
 package com.ib.formationapi.controller;
 
-import com.ib.formationapi.entity.Session;
+import com.ib.formationapi.entity.Personne;
 import com.ib.formationapi.exception.AlreadyExistException;
 import com.ib.formationapi.exception.InvalidArgumentException;
 import com.ib.formationapi.exception.NotFoundException;
-import com.ib.formationapi.service.SessionService;
+import com.ib.formationapi.service.PersonneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,41 +12,38 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-/*
-* @RestController = @Controller + @ResponseBody
-* */
-@RestController
-@RequestMapping("/session")
 /**
- * Classe controlleur pour la table Session
+ * Classe controlleur pour la table Personne
  *
  * @author Ch. Vasseur
  */
-public class SessionController {
 
-    // Activation automatique de l'injection de dépendance
+@RestController
+@RequestMapping("/utilisateur")
+public class PersonneController {
+
     @Autowired
-    private SessionService sessionService;
+    private PersonneService personneService;
 
     @GetMapping("id/{id}")
-    public Session getSessionById(@PathVariable final Long id) {
+    public Personne getPersonneById(@PathVariable final Long id) {
         try {
-            return sessionService.findById(id);
-        } catch (NotFoundException sessionNotFoundException) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, sessionNotFoundException.getMessage());
+            return personneService.findById(id);
+        } catch (NotFoundException personneNotFoundException) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, personneNotFoundException.getMessage());
         }
     }
 
     @GetMapping
-    public List<Session> getAll() {
-        return sessionService.findAll();
+    public List<Personne> getAll() {
+        return personneService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public Session create(@RequestBody Session session) {
+    public Personne create(@RequestBody Personne personne) {
         try {
-            return sessionService.create(session);
+            return personneService.create(personne);
         } catch (AlreadyExistException | InvalidArgumentException exception) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, exception.getMessage());
         }

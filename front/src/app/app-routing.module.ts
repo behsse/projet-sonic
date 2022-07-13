@@ -4,6 +4,7 @@ import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { FormsFormationUpdateComponent } from './pages/dashboard/dashboard-page/forms-formation-update/forms-formation-update.component';
 import { FormsFormationComponent } from './pages/dashboard/dashboard-page/forms-formation/forms-formation.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ContactComponent } from './pages/contact/contact.component';
 import { FormationComponent } from './pages/formation/formation.component';
 import { ThemeComponent } from './pages/theme/theme.component';
 import { NotFoundComponent } from './_commons/not-found/not-found.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'dashboard/formation/ajout', component: FormsFormationComponent},
   {path: 'dashboard/formation/suprression', component: FormsFormationUpdateComponent},
+  {path: 'contact', component: ContactComponent},
   {path: '**', component: NotFoundComponent},
 ];
 
