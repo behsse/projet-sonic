@@ -24,7 +24,10 @@ export class FormsFormationComponent implements OnInit {
     themeId: [0, Validators.required],
     theme: {},
     sousThemeId:[0, Validators.required],
-    sousTheme: {}
+    sousTheme: {},
+    image: [''],
+    tarif: ['', Validators.required],
+
   })
 
   newVal: any;

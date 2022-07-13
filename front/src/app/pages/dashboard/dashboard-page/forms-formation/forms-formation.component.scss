@@ -1,0 +1,71 @@
+.center {
+  width: 1024px;
+  margin: 0 auto;
+}
+.flex{
+  display: flex;
+}
+.titre{
+  color: #816797;
+  font-size: 30px;
+  margin-top: 100px;
+}
+
+.formulaire {
+	padding: 0 30px 30px 30px;
+  .formationForm{
+    width: 90%;
+		margin: 10px auto 100px;
+		padding: 25px;
+    .intra, .distance{
+      display: flex;
+      text-align: center;
+      width: 60%;
+      label{
+        &:nth-of-type(1){
+          margin-right: 20px;
+        }
+      }
+      input{
+        margin-top: 5px;
+        width: 10%;
+
+      }
+    }
+    .theme, .sousTheme{
+      width: 50%;
+    }
+    input, textarea {
+			display: block;
+			width: 100%;
+			margin: 3px 0 20px 0;
+			border: 0;
+			padding: 10px;
+			border: 1px solid #51557e;
+      border-radius: 10px;
+			color: #816797;
+		}
+    select{
+      display: block;
+      width: 50%;
+      margin-bottom: 20px;
+      height: 50%;
+    }
+    .send-form {
+			padding: 10px 60px;
+			border: 0;
+			background-color: #816797;
+			font-size: 16px;
+			font-weight: bold;
+			letter-spacing: .5px;
+			text-transform: uppercase;
+			color: white;
+      border-radius: 20px;
+			cursor: pointer;
+			transition: background-color .5s;
+			&:hover {
+				background-color: #5b496b;
+			}
+		}
+  }
+}

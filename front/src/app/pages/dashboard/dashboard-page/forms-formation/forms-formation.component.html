@@ -1,91 +1,98 @@
-<div *ngIf="themes">
+<div class="titre center">
+  <p>Ajouter une formation</p>
+</div>
 
-  <form [formGroup]="formationForm" (ngSubmit)="onSubmit()">
+<div *ngIf="themes" class="formulaire center">
+
+  <form [formGroup]="formationForm" (ngSubmit)="onSubmit()" class="formationForm">
     <div>
-      <label>Reference :</label>
+      <label>La référence :</label>
       <input type="text" formControlName="reference" />
     </div>
 
     <div>
-      <label>Nom :</label>
+      <label>L'intitulé :</label>
       <input type="text" formControlName="intitule" />
     </div>
 
     <div>
-      <label>publicConcerne :</label>
+      <label>Quel est le public concerné ? :</label>
       <input type="text" formControlName="publicConcerne" />
     </div>
 
     <div>
-      <label>description :</label>
-      <input type="text" formControlName="description" />
+      <label>La description :</label>
+      <textarea name="" id="" cols="30" rows="10" formControlName="description"></textarea>
     </div>
 
     <div>
-      <label>objectif :</label>
-      <input type="text" formControlName="objectif" />
+      <label>Les objectifs :</label>
+      <textarea name="" id="" cols="30" rows="10" formControlName="objectif"></textarea>
     </div>
 
     <div>
-      <label>prerequis :</label>
+      <label>Les prerequis :</label>
       <input type="text" formControlName="prerequis" />
     </div>
 
     <div>
-      <label>duree :</label>
+      <label>La duree :</label>
       <input type="text" formControlName="duree" />
     </div>
 
-    <div>
-      <label>Intra :</label>
+    <div class="intra">
+      <label>Est-elle disponible en intra ? :</label>
+      <label for="text">Oui</label>
       <input type="checkbox" value="1" formControlName="estIntra" />
-      <label for="text">Oui</label>
+      <label for="text">Non</label>
       <input type="checkbox" value="0" formControlName="estIntra" />
-      <label for="text">Non</label>
     </div>
 
-    <div>
-      <label>distanciel :</label>
-      <input type="checkbox" value="1" formControlName="distanciel" />
+    <div class="distance">
+      <label>Est-elle disponible en distanciel ? :</label>
       <label for="text">Oui</label>
-      <input type="checkbox" value="0" formControlName="distanciel" />
+      <input type="checkbox" value="1" formControlName="distanciel" />
       <label for="text">Non</label>
+      <input type="checkbox" value="0" formControlName="distanciel" />
     </div>
 
-    <!-- <div>
-      <select name="" id="" formControlName = "themeId">
+  <div class="flex">
+
+    <div class="theme">
+      <label>Choisir le theme :</label>
+      <select (change)="onChange($event) "name="" id="" formControlName = "themeId">
         <ng-container *ngFor="let theme of getListTheme()">
           <option [value]="theme.id" >
-              {{theme.titre}}
-        </option>
-      </ng-container>
-
-    </select>
-  </div> -->
-
-  <div>
-    <select (change)="onChange($event) "name="" id="" formControlName = "themeId">
-      <ng-container *ngFor="let theme of getListTheme()">
-        <option [value]="theme.id" >
             {{theme.titre}}
-      </option>
-    </ng-container>
-
-  </select>
-</div>
-
-  <div *ngIf="themeId != 0">
-    <select name="" id="" formControlName = "sousThemeId">
-      <ng-container *ngFor="let theme of getListSousTheme()">
-          <option [value]="theme.id">
-              {{theme.titre}}
-        </option>
+          </option>
         </ng-container>
       </select>
     </div>
 
+    <div *ngIf="themeId != 0" class="sousTheme">
+      <label>Choisir le sous-thème :</label>
+      <select name="" id="" formControlName = "sousThemeId">
+        <ng-container *ngFor="let theme of getListSousTheme()">
+          <option [value]="theme.id">
+            {{theme.titre}}
+          </option>
+        </ng-container>
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <label>Lien de l'image :</label>
+    <input type="text" formControlName="image">
+  </div>
+
+  <div>
+    <label for="">Le tarif :</label>
+    <input type="text" formControlName="tarif">
+  </div>
+
     <div>
-      <button type="submit" [disabled]="formationForm.invalid"> Ajouter</button>
+      <button type="submit" [disabled]="formationForm.invalid" class="send-form"> Ajouter</button>
     </div>
   </form>
 </div>

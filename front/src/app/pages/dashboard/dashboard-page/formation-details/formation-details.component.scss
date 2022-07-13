@@ -1,10 +1,94 @@
+.center {
+  width: 1024px;
+  margin: 0 auto;
+}
 .flex{
   display: flex;
 }
-.formationForm{
-  display: flex;
-  flex-direction: column;
-  .check-dist{
-    align-items: center;
+.titre{
+  color: #816797;
+  font-size: 25px;
+  margin-top: 100px;
+}
+
+.btn{
+  svg{
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    margin-top: 2px;
   }
 }
+.formulaire {
+	padding: 0 30px 30px 30px;
+  .formationForm{
+    width: 90%;
+		margin: 10px auto 100px;
+		padding: 25px;
+    .intra, .distance{
+      display: flex;
+      text-align: center;
+      width: 60%;
+      label{
+        &:nth-of-type(1){
+          margin-right: 20px;
+        }
+      }
+      input{
+        margin-top: 5px;
+        width: 10%;
+
+      }
+    }
+    .theme, .sousTheme{
+      width: 50%;
+    }
+    input, textarea {
+			display: block;
+			width: 100%;
+			margin: 3px 0 20px 0;
+			border: 0;
+			padding: 10px;
+			border: 1px solid #51557e;
+      border-radius: 10px;
+			color: #816797;
+		}
+    select{
+      display: block;
+      width: 50%;
+      margin-bottom: 20px;
+      height: 50%;
+    }
+    .double-btn{
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 13%;
+      .update-form, .cancel {
+        height: 40px;
+        width: 40px;
+        border: 0;
+        font-size: 16px;
+        color: white;
+        border-radius: 100%;
+        cursor: pointer;
+			}
+      .update-form{
+        background-color: #69c249;
+        transition: all .5s;
+        &:hover{
+          background-color: #58a13d;
+        }
+      }
+      .cancel{
+        background-color: rgb(255, 47, 47);
+        transition: all .5s;
+        &:hover{
+          background-color: rgb(206, 32, 32);
+        }
+      }
+		}
+  }
+}
+

@@ -21,8 +21,8 @@ export class FormationDetailsComponent implements OnInit {
     objectif: ['', Validators.required],
     prerequis: ['', Validators.required],
     duree: ['', Validators.required],
-    estIntra: ['', Validators.required],
-    estDistanciel: ['', Validators.required],
+    estIntra: [0, Validators.required],
+    distanciel: [0, Validators.required],
     image: [''],
     tarif: ['', Validators.required],
     theme: {},
@@ -39,6 +39,14 @@ export class FormationDetailsComponent implements OnInit {
     private formBuilder : FormBuilder) {
     this.id = this.route.snapshot.params['id'];
   }
+
+  // get estIntra() {
+  //   return this.formationForm.value.estIntra;
+  // }
+
+  // get distanciel() {
+  //   return this.formationForm.value.distanciel;
+  // }
 
   ngOnInit(): void {
     this.initFormation();
@@ -64,12 +72,13 @@ export class FormationDetailsComponent implements OnInit {
       this.formationForm.value.prerequis,
       this.formationForm.value.duree,
       this.formationForm.value.estIntra,
-      this.formationForm.value.estDistanciel,
+      this.formationForm.value.distanciel,
       this.formationForm.value.image,
       this.formationForm.value.tarif,
       this.formationForm.value.theme,
       this.formationForm.value.session,
     );
+
     this.formationService.updateFormation(formation).subscribe({
       next: () => {
         this.router.navigateByUrl('/dashboard/formation/modification');
@@ -81,8 +90,8 @@ export class FormationDetailsComponent implements OnInit {
     })
   }
 
-  goToHome() {
-    this.router.navigateByUrl('/home');
+  cancel() {
+    this.router.navigateByUrl('/dashboard/formation/modification');
   }
 
 }

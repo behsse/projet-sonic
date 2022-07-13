@@ -16,7 +16,7 @@ import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListeThemeComponent } from './pages/catalogue/liste-theme/liste-theme.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DashboardPageComponent } from './pages/dashboard/dashboard-page/dashboard-page.component';
@@ -49,6 +49,7 @@ import { ContactComponent } from './pages/contact/contact.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     MatSelectModule,
