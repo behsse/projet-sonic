@@ -58,4 +58,19 @@ public class FormationController {
         }
     }
 
+    @DeleteMapping("id/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public void delete(@PathVariable Long id) {
+        this.formationService.delete(id);
+    }
+
+    @PutMapping("id/{id}")
+    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    public Formation update(@RequestBody Formation formation, @PathVariable Long id){
+        if (!id.equals(formation.getId())){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "mauvaise formation à mettre à jour");
+        }
+        return this.formationService.update(formation);
+    }
+
 }

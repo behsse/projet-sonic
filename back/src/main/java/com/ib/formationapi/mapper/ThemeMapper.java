@@ -15,8 +15,8 @@ public interface ThemeMapper {
     Theme dtoToEntity(ThemeDto themeDto);
 
     @Mapping(target="themeParent", ignore = true)
-//    @Mapping( target = "formationsList", qualifiedByName = "formationSansTheme")
-//    @Mapping( target = "domaineListe", qualifiedByName = "domaineSansTheme")
+    //@Mapping( target = "formationsList", qualifiedByName = "formationSansTheme")
+    //@Mapping( target = "domaineListe", qualifiedByName = "domaineSansTheme")
     ThemeDto entityToDto(Theme theme);
     @Named( "sansTheme" )
     @Mapping(target="themeParent", ignore = true)

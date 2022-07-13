@@ -91,7 +91,7 @@ public class FormationService {
      * @param id        de formation qu'on veut mettre à jour
      * @return une formation
      */
-    public Formation update(Formation formation, Long id) {
+    public Formation update(Formation formation) {
         if (!this.formationDao.existsById(formation.getId())) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "la formation n'a pas été mise à jour");
         }
