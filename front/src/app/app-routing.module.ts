@@ -9,9 +9,11 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { FormationComponent } from './pages/formation/formation.component';
 import { ThemeComponent } from './pages/theme/theme.component';
 import { NotFoundComponent } from './_commons/not-found/not-found.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   {path: 'catalogue', component: CatalogueComponent},
   {path: 'catalogue/:type', component: ThemeComponent},
   {path: 'catalogue/:type/:id', component: ThemeComponent},
