@@ -40,40 +40,42 @@ nav {
       position: absolute;
       width: 100%;
       z-index: 1000;
-      margin-top: 2px;
+      margin-top: 3px;
       .domaine{
         display: flex;
         .list-domaine{
-          a{
+          .domaine-a{
             color: #816797;
             font-weight: 600;
-            font-size: 15px;
-            &:hover{
-              background-color: RGBa(0,0,0,0);
-            }
+            font-size: 16px;
           }
-        }
-      }
-      .theme{
-        width: 23%;
-        font-size: 15px;
-        .list-theme{
-          margin-left: 5px;
-          text-align: center;
-          &:last-of-type{
-            margin-bottom: 5px;
+          a{
+            .list-theme{
+              margin-left: 5px;
+              &:last-of-type{
+                margin-bottom: 5px;
+              }
+              .theme{
+                color: #000;
+                font-weight: 400;
+              }
+            }
           }
         }
       }
       li{
         width: 100%;
-        text-align: center;
+        text-align: start;
         a{
           padding: 10px;
+          font-size: 14px;
           &:hover{
             border-bottom: none;
             background-color: RGBa(200,200,200,0.1);
           }
+        }
+        p{
+          padding: 10px;
         }
       }
     }
@@ -103,8 +105,8 @@ nav {
       }
       .deroulant{
         &:nth-of-type(2) .sous{
-          width: 50%;
-          left: 26%;
+          width: 90%;
+          left: 5%;
         }
         .sous{
           width: 20%;

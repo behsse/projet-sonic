@@ -1,40 +1,35 @@
 <nav>
   <div class="logo">
-    <a routerLink="/home">IT-Tranning</a>
+    <a routerLink="/home">IT-Training</a>
   </div>
   <div class="navbar">
 
     <ul class="container-nav" >
-      <li class="deroulant principal"><a routerLink="/home">Accueil &ensp;</a>
-        <ul class="sous">
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-        </ul>
-      </li>
+      <li class="principal"><a routerLink="/home">Accueil &ensp;</a></li>
       <li class="deroulant principal"><a routerLink="/catalogue">Formations &ensp;</a>
         <ul class="sous">
           <div class="domaine">
             <li *ngFor="let domaine of domaines" class="list-domaine">
-              <a>{{domaine.intitule}}</a>
+              <p class="domaine-a">{{domaine.intitule}}</p>
+              <div *ngFor="let theme of domaine.themesListe" class="list-theme">
+                  <a *ngIf="theme.estSousTheme == false" routerLink="/catalogue/themes/{{theme.id}}" class="theme">{{theme.titre}}</a>
+              </div>
             </li>
           </div>
-            <div class="theme">
-              <li *ngFor="let theme of themes" class="list-theme">
-                  <a *ngIf="theme.estSousTheme == false" routerLink="/catalogue/themes/{{theme.id}}">{{theme.titre}}</a>
-              </li>
-            </div>
+          <div class="theme">
+            <li >
+            </li>
+          </div>
         </ul>
       </li>
       <li class="principal"><a href="#">Actualités</a></li>
       <li class="deroulant principal"><a href="#">Financement &ensp;</a>
         <ul class="sous">
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">6</a></li>
+          <li><a href="#">Financement Pôle Emploi</a></li>
+          <li><a href="#">Financement Région Hauts-de-France</a></li>
         </ul>
       </li>
-      <li class="principal"><a href="#">Contact</a></li>
+      <li class="principal"><a routerLink="contact">Contact</a></li>
     </ul>
   </div>
 
