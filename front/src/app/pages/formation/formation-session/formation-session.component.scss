@@ -1,3 +1,10 @@
+.forme {
+  padding: 100px 150px;
+  h3 {
+    color: #816797;
+    font-size: 30px;
+  }
+}
 .session{
   .intra{
     text-align: center;
@@ -19,6 +26,7 @@
     }
   }
   .container-ville {
+    margin-bottom: 15px;
     .ville {
       margin: 0 auto;
       color: #fff;
