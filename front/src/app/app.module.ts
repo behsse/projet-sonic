@@ -25,6 +25,7 @@ import { FormsFormationUpdateComponent } from './pages/dashboard/dashboard-page/
 import { FormationDetailsComponent } from './pages/dashboard/dashboard-page/formation-details/formation-details.component';
 import { FormationComposantsComponent } from './pages/dashboard/dashboard-page/formation-composants/formation-composants.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { CardFormationhomeComponent } from './pages/home/card-formationhome/card-formationhome.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     FormsFormationUpdateComponent,
     FormationDetailsComponent,
     FormationComposantsComponent,
-    ContactComponent
+    ContactComponent,
+    CardFormationhomeComponent
   ],
   imports: [
     BrowserModule,
