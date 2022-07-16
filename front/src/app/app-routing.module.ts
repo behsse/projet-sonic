@@ -23,6 +23,7 @@ const routes: Routes = [
   {path: 'dashboard/formation/ajout', component: FormsFormationComponent},
   {path: 'dashboard/formation/modification', component: FormsFormationUpdateComponent},
   {path: 'dashboard/formation/modification/:id', component: FormationDetailsComponent},
+  {path: 'dashboard/formation/suprression', component: FormsFormationUpdateComponent},
   {path: 'contact', component: ContactComponent},
   {path: '**', component: NotFoundComponent},
 ];
