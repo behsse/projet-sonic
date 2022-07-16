@@ -16,9 +16,9 @@ export default class Formation  {
   image: string;
   tarif: number;
   theme: Theme;
-  session : Session;
+  sessionsListe : Session;
 
-  constructor(id: number, reference : string, intitule: string, publicConcerne: string, description: string, objectif: string, prerequis: string, duree: string, estIntra: boolean, distanciel: boolean, image: string, tarif: number, theme: Theme, session : Session){
+  constructor(id: number, reference : string, intitule: string, publicConcerne: string, description: string, objectif: string, prerequis: string, duree: string, estIntra: boolean, distanciel: boolean, image: string, tarif: number, theme: Theme, sessionsListe : Session){
 
     this.id = id;
     this.reference = reference;
@@ -33,6 +33,6 @@ export default class Formation  {
     this.image = image;
     this.tarif = tarif;
     this.theme = theme;
-    this.session = session;
+    this.sessionsListe = sessionsListe;
   }
 }

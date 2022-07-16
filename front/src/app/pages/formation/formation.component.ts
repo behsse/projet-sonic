@@ -19,9 +19,8 @@ import { DomaineService } from 'src/app/service/domaine.service';
 export class FormationComponent implements OnInit {
 
   formation!: Formation;
+  formations: Formation[] = [];
   sessions : Session[] = [];
-
-
 
   constructor(private formationService: FormationService, private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
 
@@ -30,6 +29,7 @@ export class FormationComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.setSubscribe(type, id);
 
+    this.formationService.getFormations().subscribe((formation) => {this.formations = formation});
     this.sessionService.getSessions().subscribe((session) => {this.sessions = session});
 
   }
@@ -49,4 +49,7 @@ export class FormationComponent implements OnInit {
     }
   }
 
+  goToSession(){
+    document.getElementById('session')?.scrollIntoView();
+  }
 }

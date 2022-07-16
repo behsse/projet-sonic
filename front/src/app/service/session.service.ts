@@ -13,22 +13,22 @@ export class SessionService {
   constructor(private httpClient : HttpClient) { }
 
   getSessions(): Observable<Session[]>{
-    return this.httpClient.get<Session[]>(`${this.apiUrl}/sessions`);
+    return this.httpClient.get<Session[]>(`${this.apiUrl}/session`);
   }
 
   getSession(id: number): Observable<Session>{
-    return this.httpClient.get<Session>(`${this.apiUrl}/sessions/id/${id}`);
+    return this.httpClient.get<Session>(`${this.apiUrl}/session/id/${id}`);
   }
 
   createSession(Session: Session): Observable<Session>{
-    return this.httpClient.post<Session>(`${this.apiUrl}/sessions`, Session);
+    return this.httpClient.post<Session>(`${this.apiUrl}/session`, Session);
   }
 
   updateSession(Session: Session): Observable<Session>{
-    return this.httpClient.put<Session>(`${this.apiUrl}/sessions/${Session.id}`, Session);
+    return this.httpClient.put<Session>(`${this.apiUrl}/session/${Session.id}`, Session);
   }
 
   deleteSession(id: number): Observable<Session>{
-    return this.httpClient.delete<Session>(`${this.apiUrl}/sessions/${id}`);
+    return this.httpClient.delete<Session>(`${this.apiUrl}/session/${id}`);
   }
 }

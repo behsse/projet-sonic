@@ -14,44 +14,51 @@
         {{formation.description}}
       </p>
     </div>
-    <div class="info">
+    <div class="info flex">
+      <p>Référence : {{formation.reference}}</p>
       <p>Durée : {{formation.duree}}</p>
     </div>
-    <!-- <div class="inscription">
-      <a href="">S'inscrire</a>
-    </div> -->
-
+    <div class="session-programme flex">
+      <div class="voirsession">
+        <button (click)="goToSession()">COMMENCER</button>
+      </div>
+      <div class="programme flex">
+        <!-- Dowload icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M144 480C64.47 480 0 415.5 0 336C0 273.2 40.17 219.8 96.2 200.1C96.07 197.4 96 194.7 96 192C96 103.6 167.6 32 256 32C315.3 32 367 64.25 394.7 112.2C409.9 101.1 428.3 96 448 96C501 96 544 138.1 544 192C544 204.2 541.7 215.8 537.6 226.6C596 238.4 640 290.1 640 352C640 422.7 582.7 480 512 480H144zM303 392.1C312.4 402.3 327.6 402.3 336.1 392.1L416.1 312.1C426.3 303.6 426.3 288.4 416.1 279C407.6 269.7 392.4 269.7 383 279L344 318.1V184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184V318.1L256.1 279C247.6 269.7 232.4 269.7 223 279C213.7 288.4 213.7 303.6 223 312.1L303 392.1z"/></svg>
+        <a href="">Télécharger le programme</a>
+      </div>
+    </div>
   </div>
   <div class="container-img">
-    <img src="{{formation.image}}" alt="">
+    <img src="{{formation.image}}" alt="" class="box cover">
   </div>
 </div>
 
 <div class="objectif forme">
   <h3>Les objectifs</h3>
   <div class="container-objectif">
-    <div class="clonne1">
-      <div class="icon-p">
+    <div class="ligne flex">
+      <div class="icon-p" *ngIf="formation.objectif.split(',')[0] != null">
         <!-- Cible icon -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM112 256C112 176.5 176.5 112 256 112C335.5 112 400 176.5 400 256C400 335.5 335.5 400 256 400C176.5 400 112 335.5 112 256zM256 336C300.2 336 336 300.2 336 256C336 211.8 300.2 176 256 176C211.8 176 176 211.8 176 256C176 300.2 211.8 336 256 336zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64C149.1 64 64 149.1 64 256C64 362 149.1 448 256 448C362 448 448 362 448 256C448 149.1 362 64 256 64z"/></svg>
-        <p>Lorem ipsum dolor sit amet consectetur</p>
+        <p>{{formation.objectif.split(',')[0]}}</p>
       </div>
-      <div class="icon-p">
+      <div class="icon-p" *ngIf="formation.objectif.split(',')[1] != null">
         <!-- PC icon -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M128 96h384v256h64V80C576 53.63 554.4 32 528 32h-416C85.63 32 64 53.63 64 80V352h64V96zM624 384h-608C7.25 384 0 391.3 0 400V416c0 35.25 28.75 64 64 64h512c35.25 0 64-28.75 64-64v-16C640 391.3 632.8 384 624 384zM365.9 286.2C369.8 290.1 374.9 292 380 292s10.23-1.938 14.14-5.844l48-48c7.812-7.813 7.812-20.5 0-28.31l-48-48c-7.812-7.813-20.47-7.813-28.28 0c-7.812 7.813-7.812 20.5 0 28.31l33.86 33.84l-33.86 33.84C358 265.7 358 278.4 365.9 286.2zM274.1 161.9c-7.812-7.813-20.47-7.813-28.28 0l-48 48c-7.812 7.813-7.812 20.5 0 28.31l48 48C249.8 290.1 254.9 292 260 292s10.23-1.938 14.14-5.844c7.812-7.813 7.812-20.5 0-28.31L240.3 224l33.86-33.84C281.1 182.4 281.1 169.7 274.1 161.9z"/></svg>
-        <p>Lorem ipsum dolor sit amet consectetur</p>
+        <p>{{formation.objectif.split(',')[1]}}</p>
       </div>
     </div>
-    <div class="clonne1">
-      <div class="icon-p">
+    <div class="ligne flex">
+      <div class="icon-p" *ngIf="formation.objectif.split(',')[2] != null">
         <!-- Double User icon -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3c-95.73 0-173.3 77.6-173.3 173.3C0 496.5 15.52 512 34.66 512H413.3C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM479.1 320h-73.85C451.2 357.7 480 414.1 480 477.3C480 490.1 476.2 501.9 470 512h138C625.7 512 640 497.6 640 479.1C640 391.6 568.4 320 479.1 320zM432 256C493.9 256 544 205.9 544 144S493.9 32 432 32c-25.11 0-48.04 8.555-66.72 22.51C376.8 76.63 384 101.4 384 128c0 35.52-11.93 68.14-31.59 94.71C372.7 243.2 400.8 256 432 256z"/></svg>
-        <p>Lorem ipsum dolor sit amet consectetur</p>
+        <p>{{formation.objectif.split(',')[2]}}</p>
       </div>
-      <div class="icon-p">
+      <div class="icon-p" *ngIf="formation.objectif.split(',')[3] != null">
         <!-- Diplome icon -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M623.1 136.9l-282.7-101.2c-13.73-4.91-28.7-4.91-42.43 0L16.05 136.9C6.438 140.4 0 149.6 0 160s6.438 19.65 16.05 23.09L76.07 204.6c-11.89 15.8-20.26 34.16-24.55 53.95C40.05 263.4 32 274.8 32 288c0 9.953 4.814 18.49 11.94 24.36l-24.83 149C17.48 471.1 25 480 34.89 480H93.11c9.887 0 17.41-8.879 15.78-18.63l-24.83-149C91.19 306.5 96 297.1 96 288c0-10.29-5.174-19.03-12.72-24.89c4.252-17.76 12.88-33.82 24.94-47.03l190.6 68.23c13.73 4.91 28.7 4.91 42.43 0l282.7-101.2C633.6 179.6 640 170.4 640 160S633.6 140.4 623.1 136.9zM351.1 314.4C341.7 318.1 330.9 320 320 320c-10.92 0-21.69-1.867-32-5.555L142.8 262.5L128 405.3C128 446.6 213.1 480 320 480c105.1 0 192-33.4 192-74.67l-14.78-142.9L351.1 314.4z"/></svg>
-        <p>Lorem ipsum dolor sit amet consectetur</p>
+        <p>{{formation.objectif.split(',')[3]}}</p>
       </div>
     </div>
   </div>
@@ -62,9 +69,10 @@
   <div class="container-public">
 
     <div class="information-public">
-      <p>• Développeur</p>
-      <p>• Un mec random</p>
-      <p>• Les infos de la bdd</p>
+      <p *ngIf="formation.publicConcerne.split(',')[0] != null">• {{formation.publicConcerne.split(',')[0]}}</p>
+      <p *ngIf="formation.publicConcerne.split(',')[1] != null">• {{formation.publicConcerne.split(',')[1]}}</p>
+      <p *ngIf="formation.publicConcerne.split(',')[2] != null">• {{formation.publicConcerne.split(',')[2]}}</p>
+      <p *ngIf="formation.publicConcerne.split(',')[3] != null">• {{formation.publicConcerne.split(',')[3]}}</p>
     </div>
 
     <div class="image-public">
@@ -74,16 +82,18 @@
   </div>
 </div>
 
-<div class="session forme">
+<div class="session forme" id="session">
+  <h3>Les prochaines sessions</h3>
   <!-- Gérer les intras et inter -->
   <div class="intra">
     <p>Vous êtes une entreprise ? Demander un devis.</p>
     <a routerLink="">Demander un devis</a>
   </div>
-  <div class="container-sessions"> <!-- *ngFor="let session of sessions" -->
-    <div class="container-ville">
-
-      <p class="ville">Lille</p>
+  <div class="container-sessions" *ngFor="let session of sessions">
+    <div class="container-ville" *ngFor="let format of formations">
+      <div *ngIf="session.id == format.sessionsListe.id">
+        <p class="ville" >{{session.nom}}</p>
+      </div>
       <a routerLink="" class="list-session">
         <div class="date">
           <p>Le 03/07/2022</p>
@@ -96,14 +106,6 @@
         <div class="list-session">
         <p>Lorem ipsum...</p>
       </div>
-      <div class="list-session">
-        <p>Lorem ipsum...</p>
-      </div>
-
-    </div>
-    <div class="container-ville">
-
-      <p class="ville">Paris</p>
       <div class="list-session">
         <p>Lorem ipsum...</p>
       </div>

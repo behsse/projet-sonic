@@ -2,6 +2,14 @@ a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+}
+
+.flex{
+  display: flex;
+}
+
 .forme {
   padding: 100px 150px;
   h3 {
@@ -38,24 +46,64 @@ a {
       }
     }
     .info {
-      margin-top: 20px;
+      margin: 20px 0;
+      p{
+        &:nth-of-type(1){
+          margin-right: 50px;
+        }
+      }
     }
-    .inscription {
+    .session-programme{
       margin-top: 50px;
-      text-align: center;
-      a {
-        border-radius: 50px;
-        padding: 15px 40px;
-        color: #fff;
-        background-color: #816797;
+      width: 60%;
+      text-transform: uppercase;
+      align-items: center;
+      .voirsession{
+        font-size: 0.875rem;
+        letter-spacing: 0px;
+        line-height: 21px;
+        font-weight: 700;
+        button{
+          color: #fff;
+          background-color: #816797;
+          padding: 15px 20px;
+          border-radius: 9px;
+          transition: all .5s;
+          border: none;
+          &:hover{
+            background-color: #856b9c;
+            cursor: pointer;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          }
+        }
+      }
+      .programme{
+        justify-content: flex-end;
+        align-items: center;
+        svg{
+          margin-right: 10px;
+          width: 9%;
+          fill: #816797;
+        }
+        a{
+          color: #816797;
+          transition: all .5s;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
   .container-img {
+    padding: 150px;
     width: 50%;
-    img {
-      display: block;
+    .box{
       width: 100%;
+      height: 400px;
+    }
+    .cover{
+      object-fit: cover;
     }
   }
 }
@@ -64,20 +112,24 @@ a {
   margin-top: 50px;
   background-color: #fbf7f5;
   .container-objectif {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    .icon-p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      svg {
-        width: 5%;
-        margin-right: 10px;
-        fill: #816797;
-      }
-      p {
-        margin: 50px 0;
+    padding: 0 50px;
+    .ligne{
+      width: 100%;
+      justify-content: space-between;
+      .icon-p {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        svg {
+          width: 5%;
+          margin-right: 10px;
+          fill: #816797;
+        }
+        p {
+          font-size: 16px;
+          margin: 50px 0;
+        }
       }
     }
   }
@@ -109,7 +161,7 @@ a {
   .intra{
     text-align: center;
     font-size: 18px;
-    margin-bottom: 100px;
+    margin: 100px 0;
     p{
       margin-bottom: 50px;
     }
@@ -118,6 +170,11 @@ a {
       padding: 20px 50px;
       background-color: #816797;
       border-radius: 50px;
+      transition: all .5s;
+      &:hover{
+        background-color: #664b7e;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      }
     }
   }
   .container-ville {
