@@ -51,4 +51,9 @@ public class SessionController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, exception.getMessage());
         }
     }
+
+    @GetMapping("formation/{id}")
+    public List<Session> getSessionsByFormationId(@PathVariable final Long id) {
+        return sessionService.getSessionsByFormationId(id);
+    }
 }
