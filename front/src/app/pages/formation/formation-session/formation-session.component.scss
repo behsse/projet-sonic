@@ -48,9 +48,14 @@ a{
       background-color: #fbf7f5;
       font-size: 14px;
       color: #1b2430;
+      border-top: none;
+      border-right: none;
+      border-left: none;
       border-bottom: 1px solid #d6d3d2;
+      width: 100%;
       transition: all .5s;
       &:hover{
+        cursor: pointer;
         background-color: #d6d3d2;
       }
       &:last-of-type{

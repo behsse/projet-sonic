@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {  Subscription } from 'rxjs';
 import Formation from 'src/app/models/formation.model';
 import Session from 'src/app/models/session.model';
@@ -12,7 +13,7 @@ import { SessionService } from 'src/app/service/session.service';
 export class FormationSessionComponent implements OnInit, OnDestroy {
 
   @Input("formation") formation!: Formation;
-  constructor(private sessionService: SessionService) { }
+  constructor(private sessionService: SessionService, private router: Router, private route: ActivatedRoute,) { }
   abonnement: Subscription = new Subscription;
   sessionVilleMap = new Map<string, Session[]>();
 
@@ -37,6 +38,10 @@ export class FormationSessionComponent implements OnInit, OnDestroy {
     listeSessionsByLieu.push(session);
     this.sessionVilleMap.set(session.lieuSession, listeSessionsByLieu);
 
+  }
+
+  goToInscription() {
+    this.router.navigateByUrl('/inscription/session');
   }
 
 }
