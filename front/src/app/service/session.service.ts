@@ -31,4 +31,7 @@ export class SessionService {
   deleteSession(id: number): Observable<Session>{
     return this.httpClient.delete<Session>(`${this.apiUrl}/session/${id}`);
   }
+  getSessionByFormationId(formationId: number): Observable<Session[]> {
+    return this.httpClient.get<Session[]>(`${this.apiUrl}/session/formation/${formationId}`);
+  }
 }

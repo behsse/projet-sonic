@@ -1,0 +1,60 @@
+.forme {
+  padding: 100px 150px;
+  h3 {
+    color: #816797;
+    font-size: 30px;
+  }
+}
+.session{
+  .intra{
+    text-align: center;
+    font-size: 18px;
+    margin: 100px 0;
+    p{
+      margin-bottom: 50px;
+    }
+    a{
+      color: #fff;
+      padding: 20px 50px;
+      background-color: #816797;
+      border-radius: 50px;
+      transition: all .5s;
+      &:hover{
+        background-color: #664b7e;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      }
+    }
+  }
+  .container-ville {
+    margin-bottom: 15px;
+    .ville {
+      margin: 0 auto;
+      color: #fff;
+      padding: 18px;
+      border: none;
+      text-align: left;
+      font-size: 18px;
+      background-color: #816797;
+    }
+    .list-session {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+      padding: 18px;
+      background-color: #fbf7f5;
+      font-size: 14px;
+      color: #1b2430;
+      .prix-panier{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        svg{
+          width: 5%;
+          fill: green;
+          margin: 0 0 5px 20px;
+        }
+      }
+    }
+  }
+}

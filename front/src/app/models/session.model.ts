@@ -1,8 +1,9 @@
 export default interface Session{
-  id : Number;
-  nom : String;
-  debut_session: Date;
-  fin_session: Date;
-  type_session: String;
-  session_valide: Boolean;
+  id : number;
+  nom : string;
+  dateDebut: string;
+  dateFin: string;
+  typeSession: string;
+  sessionValide: boolean;
+  lieuSession: string;
 }

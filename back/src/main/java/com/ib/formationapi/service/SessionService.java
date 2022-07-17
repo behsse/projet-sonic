@@ -1,7 +1,6 @@
 package com.ib.formationapi.service;
 
 import com.ib.formationapi.dao.SessionDao;
-import com.ib.formationapi.entity.Domaine;
 import com.ib.formationapi.entity.Session;
 import com.ib.formationapi.exception.AlreadyExistException;
 import com.ib.formationapi.exception.InvalidArgumentException;
@@ -11,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,5 +55,10 @@ public class SessionService {
         if (this.sessionDao.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED, "Erreur lors de la suppression d'une session");
         }
+    }
+
+    public List<Session> getSessionsByFormationId(final Long formationId) {
+
+        return sessionDao.findByFormationsListe_Id(formationId);
     }
 }
