@@ -10,7 +10,8 @@ import Theme from 'src/app/models/theme.model';
 })
 export class ListeThemeComponent implements OnInit {
 
- @Input() domaine: Domaine;
+ @Input()
+  domaine!: Domaine;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
