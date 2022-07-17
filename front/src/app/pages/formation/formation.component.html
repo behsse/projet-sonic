@@ -30,7 +30,8 @@
     </div>
   </div>
   <div class="container-img">
-    <img src="{{formation.image}}" alt="" class="box cover">
+    <img *ngIf="!formation.image" src="https://i.imgur.com/IeBrmoq.jpg" alt="" class="box cover" />
+    <img *ngIf="formation.image" src="{{formation.image}}" alt="" class="box cover">
   </div>
 </div>
 
