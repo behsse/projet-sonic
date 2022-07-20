@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import Formation from 'src/app/models/formation.model';
 import Theme from 'src/app/models/theme.model';
 import { FormationService } from 'src/app/service/formation.service';
@@ -41,7 +42,7 @@ export class FormsFormationComponent implements OnInit {
   themes: Theme[] = [];
 
   // Déclaration du formbuilder dans le constructeur
-  constructor( private formBuilder : FormBuilder, private formationService: FormationService, private themeService: ThemeService) { }
+  constructor(private router: Router, private route: ActivatedRoute,private formBuilder : FormBuilder, private formationService: FormationService, private themeService: ThemeService) { }
 
   ngOnInit(): void {
 
@@ -90,6 +91,7 @@ export class FormsFormationComponent implements OnInit {
       this.formationForm.value.theme = this.themes.filter(t => t.id == this.formationForm.value.sousThemeId)[0];
       this.addFormation();
       console.log('valide');
+      this.goToDashboard();
       return true;
     }
   }
@@ -113,6 +115,10 @@ export class FormsFormationComponent implements OnInit {
     this.newVal = event.target.value;
     console.log(this.newVal);
 
+  }
+
+  goToDashboard(){
+    this.router.navigateByUrl('/dashboard');
   }
 
 }
